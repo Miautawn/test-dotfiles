@@ -6,7 +6,11 @@ hc() {
 
 hc emit_hook reload
 
-xsetroot -solid '#5A8E3A'
+######################
+# AUTOSTART PROGRAMS #
+######################
+feh --bg-scale --no-fehbg --randomize ~/.wallpaper/* &
+# xsetroot -solid '#5A8E3A'
 
 # remove all existing keybindings
 hc keyunbind --all
@@ -202,9 +206,4 @@ for monitor in $(hc list_monitors | cut -d: -f1) ; do
     # start it on each monitor
     "$panel" "$monitor" &
 done
-
-######################
-# AUTOSTART PROGRAMS #
-######################
-feh --bg-scale --no-fehbg --randomize ~/.wallpaper/* &
 
