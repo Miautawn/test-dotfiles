@@ -1,0 +1,19 @@
+{{/*
+	This template tries to include the theme code for the specified file
+		i.e. if alacritty template config file calls this template,
+		it attempts to include contents from `themes/<x>/alacritty`
+	
+	This template expects a list with 2 elements:
+		* ctx - current data context
+		* filename - the target filename (i.e. target program)
+*/}}
+{{- $ctx := index . 0 -}}
+{{- $filename := index . 1 -}}
+
+{{- $theme := default $ctx.DEFAULT_THEME (env "CHEZMOI_THEME") -}}
+{{- if  index $ctx.THEMES $theme -}}
+	{{- $theme_path := joinPath (index $ctx.THEMES $theme) $filename -}}
+	{{- if stat (joinPath $ctx.chezmoi.sourceDir $theme_path) -}}
+		{{ include $theme_path }}
+	{{- end -}}
+{{- end -}}

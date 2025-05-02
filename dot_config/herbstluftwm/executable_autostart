@@ -9,7 +9,7 @@ hc emit_hook reload
 ######################
 # AUTOSTART PROGRAMS #
 ######################
-feh --bg-scale --no-fehbg --randomize ~/.wallpaper/* &
+#feh --bg-scale --no-fehbg --randomize ~/.wallpaper/* &
 # xsetroot -solid '#5A8E3A'
 
 # remove all existing keybindings
@@ -188,7 +188,6 @@ hc rule fixedsize floating=on
 #########
 # OTHER #
 #########
-
 hc set tree_style '╾│ ├└╼─┐'
 
 # unlock, just to be sure
@@ -206,4 +205,10 @@ for monitor in $(hc list_monitors | cut -d: -f1) ; do
     # start it on each monitor
     "$panel" "$monitor" &
 done
+
+#########
+# THEME #
+#########
+{{ template "applyTheme" (list . "herbstluftwm") }}
+
 
