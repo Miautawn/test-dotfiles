@@ -1,3 +1,5 @@
-{{ $email := promptString "email" -}}
-[data]
-    email = {{ $email | quote }}
+---
+{{- $choices := list "desktop" "laptop" -}}
+{{- $device_type := promptChoiceOnce . "desktop" "What is your device type?" $choices -}}
+data:
+  DEVICE_TYPE: {{- $device_type | quote -}}
