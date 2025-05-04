@@ -1,5 +1,5 @@
 ---
-{{- $choices := list "desktop" "laptop" -}}
-{{- $device_type := promptChoiceOnce . "desktop" "What is your device type?" $choices -}}
+{{- $theme_choices := list "white" "dark" -}}
+{{- $theme := promptChoiceOnce . "white" "What theme would you like to use?" $theme_choices }}
 data:
-  DEVICE_TYPE: {{- $device_type | quote -}}
+  DEFAULT_THEME: {{ $theme | quote -}}
