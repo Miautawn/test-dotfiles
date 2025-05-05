@@ -1,5 +1,13 @@
 ---
-{{- $theme_choices := list "white" "dark" -}}
-{{- $theme := promptChoiceOnce . "white" "What theme would you like to use?" $theme_choices }}
+{{- $device_type := default "desktop" (env "SYSTEM_DEVICE_TYPE") -}}
+
+{{- $theme := "" -}}
+{{- if env "SYSTEM_THEME" -}}
+  {{- $theme = env "SYSTEM_THEME" -}}
+{{- else -}}
+  {{- $theme_choices := list "white" "dark" -}}
+  {{- $theme = promptChoiceOnce . "white" "Specify system theme: " $theme_choices -}}
+{{- end }}
 data:
-  DEFAULT_THEME: {{ $theme | quote -}}
+  DEVICE_TYPE: {{ $device_type | quote }}
+  THEME: {{ $theme | quote }}
