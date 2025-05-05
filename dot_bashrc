@@ -1,0 +1,23 @@
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+#########
+# PATHS #
+#########
+
+# Adds local executable directory to path
+export PATH="$PATH:$HOME/.local/bin"
+
+###########
+# Aliases #
+###########
+[[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
+[[ -f ~/.bash_private_aliases ]] && . ~/.bash_private_aliases
+
+###############
+# PYENV STUFF #
+###############
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - bash)"
+

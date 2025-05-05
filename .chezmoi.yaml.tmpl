@@ -1,5 +1,11 @@
 ---
-{{- $device_type := default "desktop" (env "SYSTEM_DEVICE_TYPE") -}}
+{{- $device_type := "" -}}
+{{- if env "SYSTEM_DEVICE_TYPE" -}}
+  {{- $device_type = env "SYSTEM_DEVICE_TYPE" -}}
+{{- else -}}
+  {{- $device_choices := list "desktop" "laptop" -}}
+  {{- $device_type = promptChoiceOnce . "desktop" "Specify system device type: " $device_choices -}}
+{{- end -}}
 
 {{- $theme := "" -}}
 {{- if env "SYSTEM_THEME" -}}
@@ -11,3 +17,9 @@
 data:
   DEVICE_TYPE: {{ $device_type | quote }}
   THEME: {{ $theme | quote }}
+
+merge:
+  command: "bash"
+  args:
+  - "-c"
+  - {{ "cp {{ .Target }} {{ .Target }}.base && code --new-window --wait --merge {{ .Destination }} {{ .Target }} {{ .Target }}.base {{ .Source }}" }}
