@@ -24,7 +24,11 @@ Mod=Mod1    # Use alt as the main modifier
 hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
-hc keybind $Mod-Return spawn "${TERMINAL:-xterm}" # use your $TERMINAL with xterm as fallback
+
+# Keybinds for programs
+hc keybind $Mod-Return spawn "${TERMINAL:-xterm}"
+hc keybind Control-space spawn rofi -show drun 
+hc keybind Alt-Tab spawn rofi -show window
 
 # basic movement in tiling and floating mode
 # focusing clients
