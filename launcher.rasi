@@ -11,6 +11,7 @@ configuration {
     display-window:             "󱂬"; // nf-md-dock_window
 	drun-display-format:        "{name}";
 	window-format:              "[{w}] {c} · {t}";
+}
 
 /*****----- Global Properties -----*****/
 
