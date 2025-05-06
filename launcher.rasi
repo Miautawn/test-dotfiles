@@ -6,7 +6,7 @@
 configuration {
 	modi:                       "drun,run,filebrowser,window";
     show-icons:                 false;
-    display-drun:               "drun";
+    display-drun:               "󰮯 Apps";
     display-run:                "";
     display-filebrowser:        "";
     display-window:             "";
@@ -27,7 +27,7 @@ configuration {
 }
 
 * {
-    font: "JetBrainsMono 10";
+    font: "JetBrainsMono Nerd Font 10";
 }
 
 * {
