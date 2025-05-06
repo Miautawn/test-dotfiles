@@ -6,7 +6,7 @@
 configuration {
 	modi:                       "drun,run,filebrowser,window";
     show-icons:                 false;
-    display-drun:               "\f0baf Apps";
+    display-drun:               "\udb82\udfaf Apps";
     display-run:                "";
     display-filebrowser:        "";
     display-window:             "";
