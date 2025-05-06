@@ -6,7 +6,7 @@
 configuration {
 	modi:                       "drun,run,filebrowser,window";
     show-icons:                 false;
-    display-drun:               "alah";
+    display-drun:               "U+1F92D";
     display-run:                "";
     display-filebrowser:        "";
     display-window:             "";
