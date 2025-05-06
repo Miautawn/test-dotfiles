@@ -6,7 +6,7 @@
 configuration {
 	modi:                       "drun,run,filebrowser,window";
     show-icons:                 false;
-    display-drun:               "󰮯 Apps";
+    display-drun:               "\f0baf Apps";
     display-run:                "";
     display-filebrowser:        "";
     display-window:             "";
