@@ -4,10 +4,11 @@
 
 /*****----- Configuration -----*****/
 configuration {
-	modi:                       "drun,run";
+	modi:                       "drun,filebrowser,window";
     show-icons:                 false;
     display-drun:               "󰮯"; // nf-md-pac_man
-    display-run:                ""; // nf-dev-terminal
+    display-filebrowser:        ""; // nf-fa-folder
+    display-window:             "󱂬"; // nf-md-dock_window
 	drun-display-format:        "{name}";
 	window-format:              "{c} · {t}";
 }
