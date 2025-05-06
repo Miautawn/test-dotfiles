@@ -16,6 +16,20 @@ configuration {
 
 /*****----- Global Properties -----*****/
 
+
+* {
+    background:     #262626;
+    background-alt: #353535;
+    foreground:     #D8D8D8;
+    selected:       #FFFFFF;
+    active:         #87A181;
+    urgent:         #D88B9F;
+}
+
+* {
+    font: "JetBrainsMono 10";
+}
+
 * {
     border-colour:               var(selected);
     handle-colour:               var(selected);
