@@ -10,7 +10,7 @@ configuration {
     display-filebrowser:        ""; // nf-fa-folder
     display-window:             "󱂬"; // nf-md-dock_window
 	drun-display-format:        "{name}";
-	window-format:              "{c} · {t}";
+	window-format:              "[{w}] {c} · {t}";
 }
 
 /*****----- Global Properties -----*****/
