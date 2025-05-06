@@ -6,10 +6,10 @@
 configuration {
 	modi:                       "drun,run,filebrowser,window";
     show-icons:                 false;
-    display-drun:               "\udb82\udfaf Apps";
-    display-run:                "";
-    display-filebrowser:        "";
-    display-window:             "";
+    display-drun:               "󰮯 Apps"; // nf-md-pac_man
+    display-run:                " Run"; // nf-dev-terminal
+    display-filebrowser:        " Files"; // nf-fa-folder
+    display-window:             "󱂬 Windows"; // nf-md-dock_window
 	drun-display-format:        "{name}";
 	window-format:              "{c} · {t}";
 }
