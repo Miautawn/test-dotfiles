@@ -13,7 +13,7 @@
 {{- $ctx := index . 0 -}}
 {{- $filename := index . 1 -}}
 
-{{- $theme_path := joinPath "themes" ctx.THEME $filename -}}
+{{- $theme_path := joinPath "themes" $ctx.THEME $filename -}}
 {{- if stat (joinPath $ctx.chezmoi.sourceDir $theme_path) -}}
 	{{ include $theme_path }}
 {{- end -}}
