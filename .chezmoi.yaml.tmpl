@@ -11,7 +11,7 @@
 {{- if env "SYSTEM_THEME" -}}
   {{- $theme = env "SYSTEM_THEME" -}}
 {{- else -}}
-  {{- $theme_choices := list "white" "dark" -}}
+  {{- $theme_choices := list "stock" "archcraft" -}}
   {{- $theme = promptChoiceOnce . "white" "Specify system theme: " $theme_choices -}}
 {{- end }}
 data:

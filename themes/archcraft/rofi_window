@@ -121,7 +121,7 @@ textbox-prompt-colon {
     padding:                     8px 12px;
     border-radius:               6px;
     expand:                      false;
-    str:                         "";
+    str:                         ""; // nf-fa-search
     background-color:            @background-alt;
     text-color:                  @foreground;
 }
