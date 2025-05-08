@@ -3,7 +3,7 @@
 		i.e. if alacritty template config file calls this template,
 		it attempts to include contents from `themes/<x>/alacritty`
 
-	If the curerntly specified .THEME is not found amongst .THEME theme registry
+	If the curerntly specified .THEME is not found amongst themes folder
 	or the theme resource for this file doesn't exists, an empty space is returned
 	
 	This template expects a list with 2 elements:
@@ -13,9 +13,7 @@
 {{- $ctx := index . 0 -}}
 {{- $filename := index . 1 -}}
 
-{{- if index $ctx.THEMES $ctx.THEME -}}
-	{{- $theme_path := joinPath (index $ctx.THEMES $ctx.THEME) $filename -}}
-	{{- if stat (joinPath $ctx.chezmoi.sourceDir $theme_path) -}}
-		{{ include $theme_path }}
-	{{- end -}}
+{{- $theme_path := joinPath "themes" ctx.THEME $filename -}}
+{{- if stat (joinPath $ctx.chezmoi.sourceDir $theme_path) -}}
+	{{ include $theme_path }}
 {{- end -}}
