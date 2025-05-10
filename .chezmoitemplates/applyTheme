@@ -15,5 +15,5 @@
 
 {{- $theme_path := joinPath "themes" $ctx.THEME $filename -}}
 {{- if stat (joinPath $ctx.chezmoi.sourceDir $theme_path) -}}
-	{{ include $theme_path }}
+	{{ template $theme_path }}
 {{- end -}}
