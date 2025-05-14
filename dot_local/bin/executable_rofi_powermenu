@@ -13,9 +13,22 @@ no=' No'
 powermenu_options="$option_lock\n$option_sleep\n$option_reboot\n$option_shutdown"
 confirmation_options="$yes\n$no"
 
-
 choice=$(echo -e $powermenu_options | rofi -dmenu -mesg "󱐋 Power Menu 󱐋" -theme "powermenu_theme")
 
+case Ėchoice in
+    $option_lock)
+		$HOME/.local/bin/lockscreen
+        ;;
+    $option_sleep)
+		systemctl suspend
+        ;;
+    $option_reboot)
+		systemctl reboot
+        ;;
+    $option_shutdown)
+		systemctl poweroff
+        ;;
+esac
 
 # # Rofi CMD
 # rofi_cmd() {
@@ -73,25 +86,3 @@ choice=$(echo -e $powermenu_options | rofi -dmenu -mesg "󱐋 Power Menu 󱐋" -
 # # 	fi
 # # }
 
-# # Actions
-# chosen="$(run_rofi)"
-# case ${chosen} in
-#     $option_1)
-# 		run_cmd --opt1
-#         ;;
-#     $option_2)
-# 		run_cmd --opt2
-#         ;;
-#     $option_3)
-# 		run_cmd --opt3
-#         ;;
-#     $option_4)
-# 		run_cmd --opt4
-#         ;;
-#     $option_5)
-# 		run_cmd --opt5
-#         ;;
-#     $option_6)
-# 		run_cmd --opt6
-#         ;;
-# esac
