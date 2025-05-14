@@ -1,0 +1,45 @@
+{{ includeTemplate (joinPath . "polybar/colors") }}
+
+{{ includeTemplate (joinPath . "polybar/modules") }}
+
+
+[bar/archcraft-bar]
+font-0 = 0xProto Nerd Font Mono:style=Regular:size=10;1
+# Icons
+font-1 = Symbols Nerd Font:style=Regular:size=12;1
+# Enlarged glyps for rounded corners
+font-2 = Symbols Nerd Font:style=Regular:size=23;4
+
+background = ${colors.BLACK}
+foreground = ${colors.FOREGROUND}
+
+modules-left = 
+modules-center =
+modules-right = date RD
+
+width = 95%
+height = 30
+offset-x = 2.5%
+offset-y = 0
+
+line-size = 2
+line-color = ${colors.ACCENT}
+
+border-size = 0
+border-color = ${colors.BACKGROUND}
+
+; Number of spaces to add at the beginning/end of the bar
+; Individual side values can be defined using:
+;   padding-{left,right}
+padding = 0
+
+; Number of spaces to add before/after each module
+; Individual side values can be defined using:
+;   module-margin-{left,right}
+module-margin-left = 0
+module-margin-right = 0
+
+
+
+
+

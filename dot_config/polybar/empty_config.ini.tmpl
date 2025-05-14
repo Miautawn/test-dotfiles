@@ -1,0 +1,7 @@
+; We make a deliberate choice to make the themes fully own polybar configurations
+;   not only the parts responsible for the visuals
+; This is done, since polybar is mainly a tool for DE customisation
+;   thus allowing the themes to have a full control of it makes sense
+; ----------------------
+
+{{ template "applyTheme" (list . "polybar/config.tmpl") }}

@@ -3,8 +3,11 @@
 		i.e. if alacritty template config file calls this template,
 		it attempts to include contents from `themes/<x>/alacritty`
 
+		For any internal structuring or importing, this function passes the 
+			resolved theme's base dir to the specified file's template
+
 	If the curerntly specified .THEME is not found amongst themes folder
-	or the theme resource for this file doesn't exists, an empty space is returned
+	or the theme resource for this file doesn't exists, an empty space is returned.
 	
 	This template expects a list with 2 elements:
 		* ctx - current data context
@@ -13,7 +16,8 @@
 {{- $ctx := index . 0 -}}
 {{- $filename := index . 1 -}}
 
-{{- $theme_path := joinPath "themes" $ctx.THEME $filename -}}
-{{- if stat (joinPath $ctx.chezmoi.sourceDir $theme_path) -}}
-	{{ includeTemplate $theme_path }}
+{{- $theme_dir := joinPath "themes" $ctx.THEME -}}
+{{- $theme_filepath := joinPath $theme_dir $filename -}}
+{{- if stat (joinPath $ctx.chezmoi.sourceDir $theme_filepath) -}}
+	{{ includeTemplate $theme_filepath $theme_dir }}
 {{- end -}}

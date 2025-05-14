@@ -1,0 +1,41 @@
+##################
+# COMMON MODULES #
+##################
+[module/date]
+type = internal/date
+interval = 1
+
+time = "%H:%M"
+
+format = <label>
+format-background = ${colors.ALTBACKGROUND}
+format-foreground = ${colors.WHITE}
+format-padding = 1
+
+format-prefix = "󰅐 "
+format-prefix-font = 2
+
+label = %time%
+
+[module/LD]
+type = custom/text
+format = "h"
+format-background = ${colors.BACKGROUND}
+format-foreground = ${colors.ALTBACKGROUND}
+format-font = 3
+
+[module/RD]
+type = custom/text
+format = ""
+format-background = ${colors.BACKGROUND}
+format-foreground = ${colors.ALTBACKGROUND}
+format-font = 3
+
+###################
+# DESKTOP MODULES #
+###################
+
+
+##################
+# LAPTOP MODULES #
+##################

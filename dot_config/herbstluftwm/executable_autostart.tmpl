@@ -15,12 +15,17 @@ xrdb -merge ~/.config/X11/Xresources
 feh --bg-scale --no-fehbg --randomize ~/.wallpaper/* &
 $HOME/.config/polybar/launch.sh
 
-# remove all existing keybindings
-hc keyunbind --all
+export XSECURELOCK_PASSWORD_PROMPT="cursor"
+export XSECURELOCK_FONT="0xProto Nerd Font Mono:style=Regular"
+export XSECURELOCK_BLANK_TIMEOUT=10
+
 
 ############
 # KEYBINDS #
 ############
+# remove all existing keybindings
+hc keyunbind --all
+
 # if you have a super key you will be much happier with Mod set to Mod4
 Mod=Mod1    # Use alt as the main modifier
 #Mod=Mod4   # Use the super key as the main modifier

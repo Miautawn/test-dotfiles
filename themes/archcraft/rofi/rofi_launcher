@@ -4,7 +4,7 @@
 
 /*****----- Configuration -----*****/
 configuration {
-	modi:                       "window";
+	modi:                       "drun,filebrowser,window";
     show-icons:                 false;
     display-drun:               "󰮯"; // nf-md-pac_man
     display-filebrowser:        ""; // nf-fa-folder
@@ -14,18 +14,10 @@ configuration {
 }
 
 /*****----- Global Properties -----*****/
-* {
-    background:     #262626;
-    background-alt: #353535;
-    foreground:     #D8D8D8;
-    selected:       #FFFFFF;
-    active:         #87A181;
-    urgent:         #D88B9F;
-}
 
-* {
-    font: "JetBrainsMono Nerd Font 10";
-}
+{{ includeTemplate (joinPath . "rofi/colors") }}
+
+{{ includeTemplate (joinPath . "rofi/fonts") }}
 
 * {
     border-colour:               var(selected);
@@ -60,7 +52,7 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       600px;
+    width:                       420px;
     x-offset:                    0px;
     y-offset:                    0px;
 
@@ -94,7 +86,7 @@ mainbox {
     border-radius:               0px 0px 0px 0px;
     border-color:                @border-colour;
     background-color:            transparent;
-    children:                    [ "inputbar", "listview" ];
+    children:                    [ "inputbar", "message", "listview", "mode-switcher" ];
 }
 
 /*****----- Inputbar -----*****/
@@ -131,7 +123,7 @@ entry {
     background-color:            inherit;
     text-color:                  inherit;
     cursor:                      text;
-    placeholder:                 "Filter...";
+    placeholder:                 "Search...";
     placeholder-color:           inherit;
 }
 num-filtered-rows {
@@ -163,7 +155,7 @@ case-indicator {
 listview {
     enabled:                     true;
     columns:                     1;
-    lines:                       6;
+    lines:                       7;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;

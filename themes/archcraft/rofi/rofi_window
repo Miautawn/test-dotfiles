@@ -4,7 +4,7 @@
 
 /*****----- Configuration -----*****/
 configuration {
-	modi:                       "drun,filebrowser,window";
+	modi:                       "window";
     show-icons:                 false;
     display-drun:               "󰮯"; // nf-md-pac_man
     display-filebrowser:        ""; // nf-fa-folder
@@ -14,20 +14,9 @@ configuration {
 }
 
 /*****----- Global Properties -----*****/
+{{ includeTemplate (joinPath . "rofi/colors") }}
 
-
-* {
-    background:     #262626;
-    background-alt: #353535;
-    foreground:     #D8D8D8;
-    selected:       #FFFFFF;
-    active:         #87A181;
-    urgent:         #D88B9F;
-}
-
-* {
-    font: "JetBrainsMono Nerd Font 10";
-}
+{{ includeTemplate (joinPath . "rofi/fonts") }}
 
 * {
     border-colour:               var(selected);
@@ -62,7 +51,7 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       420px;
+    width:                       600px;
     x-offset:                    0px;
     y-offset:                    0px;
 
@@ -96,7 +85,7 @@ mainbox {
     border-radius:               0px 0px 0px 0px;
     border-color:                @border-colour;
     background-color:            transparent;
-    children:                    [ "inputbar", "message", "listview", "mode-switcher" ];
+    children:                    [ "inputbar", "listview" ];
 }
 
 /*****----- Inputbar -----*****/
@@ -133,7 +122,7 @@ entry {
     background-color:            inherit;
     text-color:                  inherit;
     cursor:                      text;
-    placeholder:                 "Search...";
+    placeholder:                 "Filter...";
     placeholder-color:           inherit;
 }
 num-filtered-rows {
@@ -165,7 +154,7 @@ case-indicator {
 listview {
     enabled:                     true;
     columns:                     1;
-    lines:                       7;
+    lines:                       6;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;
