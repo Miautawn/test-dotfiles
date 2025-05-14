@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-# Set temporary environment variables and run xsecurelock
-env \
-  XSECURELOCK_PASSWORD_PROMPT="cursor" \
-  XSECURELOCK_FONT="0xProto Nerd Font Mono:style=Regular" \
-  XSECURELOCK_BLANK_TIMEOUT=10 \
-  xsecurelock
