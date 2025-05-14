@@ -12,9 +12,9 @@ hc emit_hook reload
 # Due to a weird lemurs display manager issue it doesn't load Xresources properly
 #   thus we do it manually here: https://github.com/coastalwhite/lemurs/issues/153
 xrdb -merge ~/.config/X11/Xresources
+xss-lock --transfer-sleep-lock -- $HOME/.local/bin/lockscreen &
 feh --bg-scale --no-fehbg --randomize ~/.wallpaper/* &
 $HOME/.config/polybar/launch.sh
-
 
 ############
 # KEYBINDS #
