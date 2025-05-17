@@ -1,6 +1,8 @@
-/**
- * Copyright (C) 2020-2024 Aditya Shakya <adi1090x@gmail.com>
- **/
+{{- $ctx := index . 0 -}}
+{{- $theme_dir := index . 1 -}}
+
+{{ includeTemplate (joinPath $theme_dir "rofi/colors") }}
+{{ includeTemplate (joinPath $theme_dir "rofi/fonts") }}
 
 /*****----- Configuration -----*****/
 configuration {
@@ -14,10 +16,6 @@ configuration {
 }
 
 /*****----- Global Properties -----*****/
-
-{{ includeTemplate (joinPath . "rofi/colors") }}
-
-{{ includeTemplate (joinPath . "rofi/fonts") }}
 
 * {
     border-colour:               var(selected);

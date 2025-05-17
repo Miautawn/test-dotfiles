@@ -1,0 +1,10 @@
+###################
+# DESKTOP MODULES #
+###################
+[module/desktop_stuff]
+type = custom/text
+format = desktop
+label = " "
+format-background = ${colors.BLACK}
+format-foreground = ${colors.MAGENTA}
+format-padding = 1

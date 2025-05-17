@@ -1,3 +1,6 @@
+##################
+# POLYBAR COLORS #
+##################
 [colors]
 BACKGROUND = #262626
 FOREGROUND = #D8D8D8

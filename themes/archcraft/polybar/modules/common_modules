@@ -1,0 +1,92 @@
+##################
+# COMMON MODULES #
+##################
+[module/sep]
+type = custom/text
+format = <label>
+label = " "
+format-background = ${colors.BLACK}
+format-foreground = ${colors.MAGENTA}
+format-padding = 1
+##################
+
+[module/date]
+type = internal/date
+interval = 1
+
+time = "%H:%M"
+time-alt = "%Y-%m-%d%"
+
+format = <label>
+format-background = ${colors.BLACK}
+format-foreground = ${colors.FOREGROUND}
+format-padding = 0
+
+format-prefix = "󰅐 "
+format-prefix-font = 2
+
+label = %time%
+##################
+
+[module/powermenu]
+type = custom/text
+
+format = <label>
+format-background = ${colors.ALTBACKGROUND}
+format-foreground = ${colors.FOREGROUND}
+format-padding = 1
+
+label = ""
+label-font = 2
+
+click-left = $HOME/.local/bin/rofi_powermenu
+##################
+
+[module/audio]
+type = internal/alsa
+
+; Available tags:
+;   <label-volume> (default)
+;   <ramp-volume>
+;   <bar-volume>
+format-volume = <ramp-volume>
+format-volume-padding = 0
+ramp-volume-0 = 󰝞
+ramp-volume-1 = 󰕿
+ramp-volume-2 = 󰖀
+ramp-volume-3 = 󰕾
+ramp-volume-background = ${colors.BLACK}
+ramp-volume-foreground = ${colors.FOREGROUND}
+ramp-volume-font = 2
+ramp-volume-padding = 0
+
+; Available tags:
+;   <label-muted> (default)
+;   <ramp-volume>
+;   <bar-volume>
+format-muted = <label-muted>
+format-muted-padding = 0
+label-muted = 󰝟
+label-muted-background = ${colors.BLACK}
+label-muted-foreground = ${colors.FOREGROUND}
+label-muted-font = 2
+label-muted-padding = 0
+
+click-right = pavucontrol
+##################
+
+[module/keyboard]
+type = internal/xkeyboard
+
+format = <label-layout> <label-indicator>
+label-layout = %icon%
+
+layout-icon-default = "unknown language"
+layout-icon-0 = us;US
+layout-icon-1 = en;EN
+layout-icon-2 = lt;LT
+
+label-indicator-on = %name%
+label-indicator-on-foreground = ${colors.MAGENTA}
+###################
+

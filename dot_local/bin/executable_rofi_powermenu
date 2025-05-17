@@ -15,7 +15,7 @@ confirmation_options="$yes\n$no"
 
 choice=$(echo -e $powermenu_options | rofi -dmenu -mesg "󱐋 Power Menu 󱐋" -theme "powermenu_theme")
 
-case Ėchoice in
+case $choice in
     $option_lock)
 		$HOME/.local/bin/lockscreen
         ;;
