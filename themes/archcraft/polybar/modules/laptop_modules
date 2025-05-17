@@ -15,20 +15,16 @@ battery = BAT0
 adapter = AC
 poll-interval = 5
 
-; see "man date" for details on how to format the time string
-; NOTE: if you want to use syntax tags here you need to use %%{...}
-; Default: %H:%M:%S
-time-format = %H:%M
-
 ; Available tags:
 ;   <label-charging> (default)
 ;   <bar-capacity>
 ;   <ramp-capacity>
 ;   <animation-charging>
 format-charging = <label-charging>
-format-charging-prefix = "󰂄 "
+format-charging-prefix = "󰂄"
 format-charging-prefix-font = 2
 format-charging-background = ${colors.BLACK}
+format-charging-foreground = ${colors.FOREGROUND}
 
 ; Available tags:
 ;   <label-discharging> (default)
@@ -37,17 +33,7 @@ format-charging-background = ${colors.BLACK}
 ;   <animation-discharging>
 format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-background = ${colors.BLACK}
-
-
-; Format used when battery level drops to low-at
-; If not defined, format-discharging is used instead.
-; Available tags:
-;   <label-low>
-;   <animation-low>
-;   <bar-capacity>
-;   <ramp-capacity>
-; New in version 3.6.0
-;format-low = <label-low> <animation-low>
+format-discharging-foreground = ${colors.FOREGROUND}
 
 label-charging = %percentage%%
 label-discharging = %percentage%%
@@ -55,10 +41,8 @@ label-discharging = %percentage%%
 ; Available tokens:
 ;   %percentage% (default)
 format-low = <label-low>
-format-low-prefix = "󱟩 "
+format-low-prefix = "󱟩"
 format-low-prefix-font = 2
-format-low-prefix-foreground = ${color.FOREGROUND}
-format-low-background = ${color.BLACK}
 label-low = %percentage%%
 
 ; Only applies if <ramp-capacity> is used
@@ -72,5 +56,42 @@ ramp-capacity-6 = 󰂀
 ramp-capacity-7 = 󰂁
 ramp-capacity-8 = 󰂂
 ramp-capacity-9 = 󰁹
-ramp-capacity-foreground = ${color.FOREGROUND}
 ramp-capacity-font = 2
+##################
+
+[module/network]
+type = internal/network
+
+interface = wlan0
+interface-type = wireless
+
+interval = 3
+; NOTE: Experimental (might change or be removed in the future)
+ping-interval = 3
+
+accumulate-stats = false
+unknown-as-up = true
+
+format-connected = <ramp-signal>
+format-connected-foreground = ${colors.FOREGROUND}
+format-connected-background = ${colors.BLACK}
+ramp-signal-0 = 󰤯
+ramp-signal-1 = 󰤟
+ramp-signal-2 = 󰤢
+ramp-signal-3 = 󰤥
+ramp-signal-4 = 󰤨
+ramp-signal-font = 2
+
+format-disconnected = <label-disconnected>
+format-disconnected-foreground = ${colors.FOREGROUND}
+format-disconnected-background = ${colors.BLACK}
+label-disconnected = "󰤮"
+label-disconnected-font = 2
+
+format-packetloss = <label-packetloss>
+format-packetloss-foreground = ${colors.FOREGROUND}
+format-packetloss-background = ${colors.BLACK}
+label-packetloss = "󰤫"
+label-packetloss-font = 2
+
+click-right = herbstclient rule once --floating=on --floatplacement=center; xterm --title wifi-panel -e impala

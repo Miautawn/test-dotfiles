@@ -1,10 +1,27 @@
 ###################
 # DESKTOP MODULES #
 ###################
-[module/desktop_stuff]
-type = custom/text
-format = desktop
-label = " "
-format-background = ${colors.BLACK}
-format-foreground = ${colors.MAGENTA}
-format-padding = 1
+[module/ethernet]
+type = internal/network
+
+; Name of the network interface to display. You can get the names of the
+; interfaces on your machine with `ip link`
+; Wireless interfaces often start with `wl` and ethernet interface with `eno` or `eth`
+interface = eth0
+interface-type = wired
+
+interval = 3.0
+accumulate-stats = false
+unknown-as-up = true
+
+format-connected = <label-connected>
+format-connected-foreground = ${colors.FOREGROUND}
+format-connected-background = ${colors.BLACK}
+label-connected = ""
+label-connected-font = 2
+
+format-disconnected = <label-disconnected>
+format-disconnected-foreground = ${colors.FOREGROUND}
+format-disconnected-background = ${colors.BLACK}
+label-disconnected = ""
+label-disconnected-font = 2

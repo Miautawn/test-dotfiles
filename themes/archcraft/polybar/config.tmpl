@@ -24,9 +24,15 @@ font-2 = Symbols Nerd Font:style=Regular:size=14;1
 background = ${colors.BLACK}
 foreground = ${colors.FOREGROUND}
 
+{{ if eq $ctx.DEVICE_TYPE "laptop" -}}
 modules-left = 
 modules-center =
-modules-right = battery sep keyboard sep audio sep date sep powermenu
+modules-right = network sep battery sep keyboard sep audio sep date sep powermenu
+{{- else if eq $ctx.DEVICE_TYPE "desktop" -}}
+modules-left = 
+modules-center =
+modules-right = ethernet sep keyboard sep audio sep date sep powermenu
+{{- end }}
 
 width = 100%
 height = 30
