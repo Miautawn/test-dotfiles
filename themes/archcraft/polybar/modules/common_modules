@@ -90,3 +90,40 @@ label-indicator-on = %name%
 label-indicator-on-foreground = ${colors.MAGENTA}
 ###################
 
+[module/herbstluftwm]
+type = internal/xworkspaces
+
+; Only show workspaces defined on the same output as the bar
+pin-workspaces = true
+group-by-monitor = false
+enable-click = true
+enable-scroll = false
+
+format = <label-state>
+format-foreground = ${colors.FOREGROUND}
+format-background = ${colors.BLACK}
+
+label-active = "󰮯"
+label-active-font = 2
+
+label-occupied = ""
+label-occupied-font = 2
+
+label-empty = ""
+label-empty-font = 2
+
+label-urgent = "󱙝"
+label-urgent-underline = ${colors.MAGENTA}
+label-urgent-font = 2
+
+label-active-padding = 1
+label-urgent-padding = 1
+label-occupied-padding = 1
+label-empty-padding = 1
+###################
+
+[module/tray]
+type = internal/tray
+
+format-margin = 8px
+tray-spacing = 8px

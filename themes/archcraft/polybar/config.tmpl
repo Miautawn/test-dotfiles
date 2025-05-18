@@ -25,11 +25,11 @@ background = ${colors.BLACK}
 foreground = ${colors.FOREGROUND}
 
 {{ if eq $ctx.DEVICE_TYPE "laptop" -}}
-modules-left = 
-modules-center =
-modules-right = network sep battery sep keyboard sep audio sep date sep powermenu
+modules-left = herbstluftwm sep keyboard
+modules-center = tray
+modules-right = network sep audio sep battery sep date sep powermenu
 {{- else if eq $ctx.DEVICE_TYPE "desktop" -}}
-modules-left = 
+modules-left = herbstluftwm
 modules-center =
 modules-right = ethernet sep keyboard sep audio sep date sep powermenu
 {{- end }}
