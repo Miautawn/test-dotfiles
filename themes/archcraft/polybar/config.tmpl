@@ -29,9 +29,9 @@ modules-left = herbstluftwm sep keyboard
 modules-center = tray
 modules-right = network sep audio sep battery sep date sep powermenu
 {{- else if eq $ctx.DEVICE_TYPE "desktop" -}}
-modules-left = herbstluftwm
-modules-center =
-modules-right = ethernet sep keyboard sep audio sep date sep powermenu
+modules-left = herbstluftwm sep keyboard
+modules-center = tray
+modules-right = ethernet sep audio sep date sep powermenu
 {{- end }}
 
 width = 100%
