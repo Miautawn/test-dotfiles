@@ -126,8 +126,8 @@ label-empty-padding = 1
 type = internal/tray
 
 format = <tray>
-format-background = ${color.BLACK}
-tray-background = ${color.BLACK}
-tray-foreground = ${color.FOREGROUND}
+format-background = ${colors.BLACK}
+tray-background = ${colors.BLACK}
+tray-foreground = ${colors.FOREGROUND}
 tray-spacing = 8px
 tray-size = 50%
