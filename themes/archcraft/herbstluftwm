@@ -29,7 +29,7 @@ hc attr theme.normal.title_color blue       # color of the currently inactive wi
 hc attr theme.urgent.color '#c678dd'        # color of the urgent window title background
 hc attr theme.urgent.title_color '#c678dd'  # color of the urgent window title text
 
-hc attr theme.floating.tab_color blue
+hc attr theme.normal.tab_color blue
 
 # copy inner color to outer_color
 for state in active urgent normal ; do
