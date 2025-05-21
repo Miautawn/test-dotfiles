@@ -32,6 +32,7 @@ hc attr theme.floating.title_ red
 hc attr theme.tab_color "#c678dd"
 
 hc attr theme.floating.title_height 10
+hc attr theme.floating.title_color black
 hc attr theme.floating.border_width 5       # boarder width
 hc attr theme.floating.color '#D8D8D8'      # boarder color
 
