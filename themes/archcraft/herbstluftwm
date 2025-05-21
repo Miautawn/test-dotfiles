@@ -1,6 +1,13 @@
 hc attr theme.tiling.reset 1
 hc attr theme.floating.reset 1
 
+# GLOBAL SETTINGS
+hc attr theme.border_width       1
+hc attr theme.outer_width        1
+hc attr theme.active.outer_color '#D8D8D8'
+hc attr theme.normal.outer_color '#1e222a'
+
+
 hc set show_frame_decorations 'if_multiple'
 hc set frame_border_width 3
 hc set frame_bg_transparent on
