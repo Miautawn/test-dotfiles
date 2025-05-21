@@ -23,11 +23,11 @@ hc attr theme.border_width 0
 hc attr theme.floating.border_width 0
 hc attr theme.floating.outer_width 0
 
-hc attr theme.active.color '#1e222a'
-hc attr theme.title_color '#D8D8D8'
-hc attr theme.normal.color '#D8D8D8'
+hc attr theme.active.color '#1e222a'    # color of the currently active window title background
+hc attr theme.title_color '#D8D8D8'     # color of the currently active window title text
+hc attr theme.normal.color red
+hc attr theme.normal.title_color blue
 hc attr theme.urgent.color '#D34651'
-hc attr theme.normal.title_color '#D8D8D8'
 hc attr theme.urgent.title_color '#D34651'
 hc attr theme.floating.outer_color black
 hc attr theme.active.inner_color '#EEEEEE'
