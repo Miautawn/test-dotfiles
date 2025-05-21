@@ -19,7 +19,6 @@ hc attr theme.padding_top 0  # space below the title's baseline (i.e. text depth
 hc attr theme.inner_width 0
 hc attr theme.active.outer_width 0
 hc attr theme.border_width 0
-hc attr theme.floating.border_width 10
 hc attr theme.floating.outer_width 0
 
 hc attr theme.active.color '#1e222a'        # color of the currently active window title background
@@ -29,11 +28,12 @@ hc attr theme.title_color '#D8D8D8'         # color of the currently active wind
 hc attr theme.urgent.color '#c678dd'        # color of the urgent window title background
 hc attr theme.urgent.title_color '#c678dd'  # color of the urgent window title text
 
-hc attr theme.floating.color blue
 hc attr theme.floating.title_ red
 hc attr theme.tab_color "#c678dd"
 
 hc attr theme.floating.title_height 10
+hc attr theme.floating.border_width 5       # boarder width
+hc attr theme.floating.color '#D8D8D8'      # boarder color
 
 # copy inner color to outer_color
 for state in active urgent normal ; do
