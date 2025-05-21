@@ -14,10 +14,10 @@ hc set frame_bg_transparent on
 hc set frame_transparent_width 0
 hc set frame_gap 0
 
-hc set frame_border_active_color '#D8D8D8'
-hc set frame_bg_active_color '#D8D8D8'
-hc set frame_border_normal_color '#1e222a'
-hc set frame_bg_normal_color '#1e222a'
+# hc set frame_border_active_color '#D8D8D8'
+# hc set frame_bg_active_color '#D8D8D8'
+# hc set frame_border_normal_color '#1e222a'
+# hc set frame_bg_normal_color '#1e222a'
 
 # containers
 hc attr theme.title_font 'JetBrains Mono Medium:pixelsize=12'  # example using Xft
@@ -45,10 +45,10 @@ hc attr theme.floating.border_width 5       # boarder width
 hc attr theme.floating.color '#D8D8D8'      # boarder color
 
 # copy inner color to outer_color
-for state in active urgent normal ; do
-    hc substitute C theme.${state}.inner_color \
-        attr theme.${state}.outer_color C
-done
+# for state in active urgent normal ; do
+#     hc substitute C theme.${state}.inner_color \
+#         attr theme.${state}.outer_color C
+# done
 
 hc set window_gap 15
 hc set frame_padding 0
