@@ -7,7 +7,6 @@ hc attr theme.outer_width        1
 hc attr theme.active.outer_color '#1e222a'
 hc attr theme.normal.outer_color '#D8D8D8'
 
-
 hc set show_frame_decorations 'if_multiple'
 hc set frame_border_width 3
 hc set frame_bg_transparent on
@@ -20,29 +19,29 @@ hc set frame_gap 0
 # hc set frame_bg_normal_color '#1e222a'
 
 # containers
-hc attr theme.title_font 'JetBrains Mono Medium:pixelsize=12'  # example using Xft
-hc attr theme.title_height 20
-hc attr theme.padding_top 0  # space below the title's baseline (i.e. text depth)
-hc attr theme.inner_width 0
-hc attr theme.active.outer_width 0
-hc attr theme.border_width 0
-hc attr theme.floating.outer_width 0
+# hc attr theme.title_font 'JetBrains Mono Medium:pixelsize=12'  # example using Xft
+# hc attr theme.title_height 20
+# hc attr theme.padding_top 0  # space below the title's baseline (i.e. text depth)
+# hc attr theme.inner_width 0
+# hc attr theme.active.outer_width 0
+# hc attr theme.border_width 0
+# hc attr theme.floating.outer_width 0
 
-hc attr theme.active.color '#1e222a'        # color of the currently active window title background
-hc attr theme.title_color '#D8D8D8'         # color of the currently active window title text
-#hc attr theme.normal.color red              # color of the currently inactive window title background
-#hc attr theme.normal.title_color blue       # color of the currently inactive window title text
-hc attr theme.urgent.color '#c678dd'        # color of the urgent window title background
-hc attr theme.urgent.title_color '#c678dd'  # color of the urgent window title text
+# hc attr theme.active.color '#1e222a'        # color of the currently active window title background
+# hc attr theme.title_color '#D8D8D8'         # color of the currently active window title text
+# #hc attr theme.normal.color red              # color of the currently inactive window title background
+# #hc attr theme.normal.title_color blue       # color of the currently inactive window title text
+# hc attr theme.urgent.color '#c678dd'        # color of the urgent window title background
+# hc attr theme.urgent.title_color '#c678dd'  # color of the urgent window title text
 
-hc attr theme.floating.title_ red
-hc attr theme.tab_color "#c678dd"
+# hc attr theme.floating.title_ red
+# hc attr theme.tab_color "#c678dd"
 
-hc attr theme.floating.title_height
-hc attr theme.floating.title_color "#1e222a"
-hc attr theme.floating.title_align "center"
-hc attr theme.floating.border_width 5       # boarder width
-hc attr theme.floating.color '#D8D8D8'      # boarder color
+# hc attr theme.floating.title_height
+# hc attr theme.floating.title_color "#1e222a"
+# hc attr theme.floating.title_align "center"
+# hc attr theme.floating.border_width 5       # boarder width
+# hc attr theme.floating.color '#D8D8D8'      # boarder color
 
 # copy inner color to outer_color
 # for state in active urgent normal ; do
