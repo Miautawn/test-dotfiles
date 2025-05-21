@@ -30,7 +30,7 @@ hc attr theme.urgent.color '#c678dd'        # color of the urgent window title b
 hc attr theme.urgent.title_color '#c678dd'  # color of the urgent window title text
 
 hc attr theme.floating.color blue
-
+hc attr theme.floating.tab_color red
 hc attr theme.tab_color "#c678dd"
 
 # copy inner color to outer_color
