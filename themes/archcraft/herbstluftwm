@@ -14,7 +14,7 @@ hc set frame_bg_normal_color '#1e222a'
 
 # containers
 hc attr theme.title_font 'JetBrains Mono Medium:pixelsize=12'  # example using Xft
-hc attr theme.title_height 24
+hc attr theme.title_height 10
 hc attr theme.padding_top 12  # space below the title's baseline (i.e. text depth)
 hc attr theme.inner_width 0
 hc attr theme.active.outer_width 0
