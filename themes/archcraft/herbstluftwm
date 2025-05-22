@@ -15,7 +15,7 @@ hc set frame_gap 0
 
 # ACTIVE WINDOW SETTINGS
 hc attr theme.title_height 10
-hc attr theme.title_depth ''
+hc attr theme.title_depth 10
 hc attr theme.title_when always
 hc attr theme.active.color '#0f0f0f'
 hc attr theme.normal.color '#0f0f0f'
