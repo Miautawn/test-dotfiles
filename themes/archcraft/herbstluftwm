@@ -16,12 +16,9 @@ hc set frame_gap 0
 # ACTIVE WINDOW SETTINGS
 hc attr theme.title_height 10
 hc attr theme.title_depth 10
-hc attr theme.title_when always
-hc attr theme.active.color '#0f0f0f'
-hc attr theme.normal.color '#0f0f0f'
 hc attr theme.title_color '#f0f0f0'
 hc attr theme.title_align center
-hc attr theme.title_font  '0xProto Nerd Font Mono:size=5'
+hc attr theme.title_font  '0xProto Nerd Font Mono:size=7'
 hc attr theme.title_when "multiple_tabs"
 
 # hc set frame_border_active_color '#D8D8D8'
