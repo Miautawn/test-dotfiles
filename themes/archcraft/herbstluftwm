@@ -14,14 +14,14 @@ hc set frame_transparent_width 0
 hc set frame_gap 0
 
 # ACTIVE WINDOW SETTINGS
-hc attr theme.title_height 25
+hc attr theme.title_height ''
+hc attr theme.title_depth ''
 hc attr theme.title_when always
 hc attr theme.active.color '#0f0f0f'
 hc attr theme.normal.color '#0f0f0f'
 hc attr theme.title_color '#f0f0f0'
 hc attr theme.title_align center
 hc attr theme.title_font  '0xProto Nerd Font Mono:size=5'
-hc attr theme.title_depth 10
 
 # hc set frame_border_active_color '#D8D8D8'
 # hc set frame_bg_active_color '#D8D8D8'
