@@ -20,7 +20,6 @@ hc attr theme.normal.color '#808080'    # focused tab color in the unfocused cli
 # GLOBAL TITLE SETTINGS
 hc attr theme.title_font  '0xProto Nerd Font Mono:pixelsize=0'
 hc attr theme.title_align center
-hc attr theme.title_color '#f0f0f0'
 hc attr theme.title_height 13
 hc attr theme.title_depth 7
 hc attr theme.title_when "multiple_tabs"
@@ -51,7 +50,6 @@ hc attr theme.floating.title_when "always"
 hc attr theme.floating.active.color '#808080'
 hc attr theme.floating.active.outer_color "#c678dd"
 hc attr theme.floating.normal.outer_color "#1e222a"
-
 
 ############################
 # INACTIVE WINDOW SETTINGS #
