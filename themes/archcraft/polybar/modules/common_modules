@@ -113,7 +113,7 @@ label-empty = ""
 label-empty-font = 2
 
 label-urgent = "󱙝"
-label-urgent-underline = ${colors.MAGENTA}
+label-urgent-underline = ${colors.RED}
 label-urgent-font = 2
 
 label-active-padding = 1
