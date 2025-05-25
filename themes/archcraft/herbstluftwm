@@ -20,7 +20,7 @@ hc attr theme.active.tab_color '#808080'    # unfocused tab color in the focused
 hc attr theme.normal.color '#808080'    # focused tab color in the unfocused client
 
 # GLOBAL TITLE SETTINGS
-hc attr theme.title_font  '0xProto Nerd Font Mono:size=7'
+hc attr theme.title_font  '0xProto Nerd Font Mono:pixelsize=0'
 hc attr theme.title_align center
 hc attr theme.title_color '#f0f0f0'
 hc attr theme.title_height 13
