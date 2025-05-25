@@ -11,8 +11,6 @@ hc attr theme.outer_width        1
 hc attr theme.active.outer_color white
 hc attr theme.normal.outer_color black
 
-hc attr theme.active.outer_width "2 0 0 0" # 2 pixels for the bottom (underline)
-
 # GLOBAL TAB SETTINGS
 # https://github.com/herbstluftwm/herbstluftwm/discussions/1520
 hc attr theme.active.color '#D8D8D8'    # focused tab color in the focused client
