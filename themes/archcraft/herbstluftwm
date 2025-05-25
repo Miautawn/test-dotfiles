@@ -6,7 +6,7 @@ hc attr theme.floating.reset 1
 ###################
 
 # GLOBAL BOARDER SETTINGS
-hc attr theme.border_width       3
+hc attr theme.border_width       4
 hc attr theme.outer_width        2
 hc attr theme.active.outer_color black
 hc attr theme.normal.outer_color black
