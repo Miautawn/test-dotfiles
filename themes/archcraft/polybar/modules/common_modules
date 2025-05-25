@@ -105,7 +105,7 @@ format-background = ${colors.BLACK}
 
 label-active = "󰮯"
 label-active-font = 2
-label-urgent-underline = ${colors.FOREGROUND}
+label-active-underline = ${colors.FOREGROUND}
 
 label-occupied = ""
 label-occupied-font = 2
