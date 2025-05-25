@@ -18,7 +18,7 @@ hc attr theme.title_height 13
 hc attr theme.title_depth 7
 hc attr theme.title_color '#f0f0f0'
 hc attr theme.title_align center
-hc attr theme.title_font  '0xProto Nerd Font Mono:size=0'
+hc attr theme.title_font  '0xProto Nerd Font Mono:size=30'
 hc attr theme.title_when "multiple_tabs"
 
 
