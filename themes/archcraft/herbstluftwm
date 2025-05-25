@@ -33,7 +33,6 @@ hc set frame_transparent_width 0
 hc set frame_gap 0
 hc set frame_padding 0
 
-
 hc set frame_border_active_color '#D8D8D8'
 hc set frame_bg_active_color '#D8D8D8'
 hc set frame_border_normal_color '#1e222a'
@@ -49,6 +48,8 @@ hc set mouse_recenter_gap 0
 # FLOATING WINDOW SETTINGS #
 ############################
 hc attr theme.floating.title_when "always"
+hc attr theme.floating.outer_color magenta
+
 
 ############################
 # INACTIVE WINDOW SETTINGS #
