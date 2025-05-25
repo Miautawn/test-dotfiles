@@ -38,6 +38,12 @@ hc set mouse_recenter_gap 0
 ############################
 hc attr theme.floating.title_when "always"
 
+############################
+# INACTIVE WINDOW SETTINGS #
+############################
+hc attr theme.floating.title_when "always"
+hc attr theme.normal.outer_color red
+
 
 # ACTIVE WINDOW SETTINGS
 
