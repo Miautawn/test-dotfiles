@@ -25,6 +25,13 @@ hc set frame_border_width 3
 hc set frame_bg_transparent on
 hc set frame_transparent_width 0
 hc set frame_gap 0
+hc set frame_padding 0
+
+# GLOBAL MISCELANIOUS
+hc set window_gap 15
+hc set smart_window_surroundings off
+hc set smart_frame_surroundings on
+hc set mouse_recenter_gap 0
 
 ############################
 # FLOATING WINDOW SETTINGS #
@@ -71,9 +78,3 @@ hc attr theme.floating.title_when "always"
 #     hc substitute C theme.${state}.inner_color \
 #         attr theme.${state}.outer_color C
 # done
-
-hc set window_gap 15
-hc set frame_padding 0
-hc set smart_window_surroundings off
-hc set smart_frame_surroundings on
-hc set mouse_recenter_gap 0
