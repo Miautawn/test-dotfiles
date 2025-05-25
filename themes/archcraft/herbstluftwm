@@ -11,7 +11,8 @@ hc attr theme.outer_width        1
 hc attr theme.active.outer_color '#D8D8D8'
 hc attr theme.normal.outer_color red
 
-hc attr theme.active.color red
+# this controlls the active tab color in the focused client
+hc attr theme.active.color '#D8D8D8'
 
 # GLOBAL TITLE SETTINGS
 hc attr theme.title_font  '0xProto Nerd Font Mono:size=7'
