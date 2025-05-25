@@ -48,7 +48,8 @@ hc set mouse_recenter_gap 0
 # FLOATING WINDOW SETTINGS #
 ############################
 hc attr theme.floating.title_when "always"
-hc attr theme.floating.outer_color magenta
+hc attr theme.floating.active.outer_color "#c678dd"
+hc attr theme.floating.normal.outer_color "#895399"
 
 
 ############################
