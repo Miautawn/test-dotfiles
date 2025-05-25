@@ -8,7 +8,7 @@ hc attr theme.floating.reset 1
 # GLOBAL BOARDER SETTINGS
 hc attr theme.border_width       3
 hc attr theme.outer_width        1
-hc attr theme.active.outer_color '#c678dd'
+hc attr theme.active.outer_color white
 hc attr theme.normal.outer_color black
 
 hc attr theme.active.outer_width "2 0 0 0" # 2 pixels for the bottom (underline)
