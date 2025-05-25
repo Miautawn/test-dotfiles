@@ -10,7 +10,6 @@ hc attr theme.border_width       1
 hc attr theme.outer_width        1
 hc attr theme.active.outer_color '#D8D8D8'
 hc attr theme.normal.outer_color '#1e222a'
-hc attr theme.tab_color white
 
 hc attr theme.tab_outer_color '#D8D8D8'
 hc attr theme.normal.tab_outer_color red
