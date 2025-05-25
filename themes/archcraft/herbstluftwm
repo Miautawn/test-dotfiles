@@ -42,8 +42,8 @@ hc attr theme.floating.title_when "always"
 # INACTIVE WINDOW SETTINGS #
 ############################
 hc attr theme.normal.border_width       10
-# hc attr theme.normal.outer_width        10
-# hc attr theme.normal.outer_color red
+hc attr theme.normal.outer_width        5
+hc attr theme.normal.outer_color red
 hc attr theme.normal.color blue
 
 
