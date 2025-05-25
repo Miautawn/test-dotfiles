@@ -11,7 +11,8 @@ hc attr theme.outer_width        1
 hc attr theme.active.outer_color '#D8D8D8'
 hc attr theme.normal.outer_color black
 
-hc attr theme.active.title_depth 2
+hc attr theme.active.outer_width "0 0 2 0" # 2 pixels for the bottom (underline)
+hc attr theme.active.outer_color blue
 
 # GLOBAL TAB SETTINGS
 # https://github.com/herbstluftwm/herbstluftwm/discussions/1520
