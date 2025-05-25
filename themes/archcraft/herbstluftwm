@@ -8,7 +8,7 @@ hc attr theme.floating.reset 1
 # GLOBAL BOARDER SETTINGS
 hc attr theme.border_width       3
 hc attr theme.outer_width        1
-hc attr theme.active.outer_color white
+hc attr theme.active.outer_color black
 hc attr theme.normal.outer_color black
 
 # GLOBAL TAB SETTINGS
