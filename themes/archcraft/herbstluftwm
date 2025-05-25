@@ -49,7 +49,7 @@ hc set mouse_recenter_gap 0
 ############################
 hc attr theme.floating.title_when "always"
 hc attr theme.floating.active.outer_color "#c678dd"
-hc attr theme.floating.normal.outer_color "#895399"
+hc attr theme.floating.normal.outer_color "#1e222a"
 
 
 ############################
