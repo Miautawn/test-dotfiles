@@ -57,7 +57,7 @@ hc attr theme.floating.normal.outer_color "#1e222a"
 ########################Ę
 # URGEN WINDOW SETTINGS #
 #########################
-hc attr theme.urgent.color "#db8e46"
+hc attr theme.urgent.color "#cc7c31"
 
 # ACTIVE WINDOW SETTINGS
 
