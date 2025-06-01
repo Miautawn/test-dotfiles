@@ -3,6 +3,6 @@ Version=1.0
 Type=Application
 Name=Powermenu
 Comment=Opens a Rofi based powermenu
-Exec=rofi_powermenu
+Exec=sh -c "$HOME/.local/bin/rofi_powermenu"
 Terminal=false
 Categories=Utility;System;
