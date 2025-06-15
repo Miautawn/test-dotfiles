@@ -1,9 +1,1 @@
 #include "Xresources.d/xterm"
-
-Xft.antialias:	1
-Xft.hintstyle:	hintfull
-Xft.rgba:	none
-Xft.dpi:	96
-Xcursor.theme:	
-Xcursor.size:	0
-Xcursor.theme_core:	1
