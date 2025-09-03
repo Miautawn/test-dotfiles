@@ -8,4 +8,4 @@ alias cat=bat
 alias mkdir="mkdir -pv"			        # create intermediatary directories
 
 # browse shortcuts
-alias shortcuts_miautawn="nvim -M ~/.SHORTCUTS.md"
+alias miautawn-shortcuts="nvim -M ~/.SHORTCUTS.md"
