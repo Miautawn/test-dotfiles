@@ -87,7 +87,7 @@ layout-icon-1 = en;EN
 layout-icon-2 = lt;LT
 
 label-indicator-on = %name%
-label-indicator-on-foreground = ${colors.MAGENTA}
+label-indicator-on-foreground = ${colors.ACCENT_GREEN}
 ###################
 
 [module/herbstluftwm]

@@ -1,0 +1,11 @@
+# ls
+alias ls="ls -CF --color=auto"		    	# force ls to show file types
+
+# cat
+alias cat=bat
+
+# mkdir
+alias mkdir="mkdir -pv"			        # create intermediatary directories
+
+# browse shortcuts
+alias shortcuts_miautawn="nvim -M ~/.SHORTCUTS.md"

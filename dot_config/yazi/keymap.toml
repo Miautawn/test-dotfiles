@@ -1,0 +1,9 @@
+[mgr]
+prepend_keymap = [
+	{ on = "<C-h>", run = "hidden toggle", desc = "Single command with `Ctrl + h`" },
+	{ on = "p", run = ["paste", "unyank"], desc = "Paste and cancel yank/cut" },
+	{ on = "P", run = ["paste --force", "unyank"], desc = "Paste and cancel yank/cut with overwrite" },
+	{ on = "f",         run = "search --via=fd",             desc = "Search files by name via fd" },
+	{ on = "F",         run = "search --via=rg",             desc = "Search files by content via ripgrep" },
+	{ on = "<C-f>",     run = "escape --search",             desc = "Cancel the ongoing search" },
+]
