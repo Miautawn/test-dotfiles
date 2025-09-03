@@ -31,7 +31,7 @@ hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
 
 # Keybinds for programs
-hc keybind $Mod-Return spawn "${TERMINAL:-kitty --single-instance}"
+hc keybind $Mod-Return spawn kitty --single-instance
 hc keybind Control-space spawn rofi -show drun -theme launcher_theme
 hc keybind $Mod-Tab spawn rofi -show window -theme window_theme
 
