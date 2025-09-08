@@ -6,4 +6,4 @@ env \
   XSECURELOCK_FONT="0xProto Nerd Font Mono:style=Regular" \
   XSECURELOCK_BLANK_TIMEOUT=10 \
   XSECURELOCK_AUTH_TIMEOUT=10 \
-  xsecurelock
+  xsecurelock 2> /dev/null
