@@ -2,7 +2,7 @@
 alias ls="ls -CF --color=auto"		    	# force ls to show file types
 
 # cat
-alias cat=bat
+alias cat="bat --style=plain"
 
 # mkdir
 alias mkdir="mkdir -pv"			        # create intermediatary directories
