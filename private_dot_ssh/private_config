@@ -1,0 +1,8 @@
+# Generic, public settings
+Host github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/miautawn_default
+
+# Include local-only or sensitive configs
+Include ~/.ssh/config_local
