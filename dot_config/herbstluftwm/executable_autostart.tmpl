@@ -13,8 +13,12 @@ hc emit_hook reload
 #   thus we do it manually here: https://github.com/coastalwhite/lemurs/issues/153
 xrdb -merge ~/.config/X11/Xresources
 xss-lock --transfer-sleep-lock -- $HOME/.local/bin/lockscreen &
+# If we ever need "only transparancy compositor - let's use xcompmgr, it's really lightweight!"
+# xcompmgr & 
 feh --bg-fill --no-fehbg --recursive --randomize ~/.wallpaper/* &
 $HOME/.config/polybar/launch.sh
+dunst &
+
 
 ############
 # KEYBINDS #
@@ -34,6 +38,7 @@ hc keybind $Mod-Shift-c close
 hc keybind $Mod-Return spawn kitty --single-instance
 hc keybind Control-space spawn rofi -show drun -theme launcher_theme
 hc keybind $Mod-Tab spawn rofi -show window -theme window_theme
+hc keybind $Mod-BackSpace spawn $HOME/.local/bin/gamemode_toggle
 
 # basic movement in tiling and floating mode
 # focusing clients
@@ -120,7 +125,7 @@ hc mousebind $Mod-Button3 resize
 #########
 # FOCUS #
 #########
-hc keybind $Mod-BackSpace   cycle_monitor
+# hc keybind $Mod-BackSpace   cycle_monitor
 # hc keybind $Mod-Tab         cycle_all +1
 hc keybind $Mod-Shift-Tab   cycle_all -1
 hc keybind $Mod-c cycle +1
