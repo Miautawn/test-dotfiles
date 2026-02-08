@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Define the file to store the toggle state
+STATE_DIR="${XDG_RUNTIME_DIR:-/tmp}"
+STATE_FILE="$STATE_DIR/herbst_gamemode_status"
+
+if [ ! -f "$STATE_FILE" ]; then
+    # ENABLE GAMING MODE
+    herbstclient keyunbind Control-space
+    notify-send '' -c 'gamemode_toggle_on'
+    touch "$STATE_FILE"
+else
+    # DISABLE GAMING MODE
+    herbstclient keybind Control-space spawn rofi -show drun -theme launcher_theme
+    notify-send '' -c 'gamemode_toggle_off'
+    rm "$STATE_FILE"
+fi
