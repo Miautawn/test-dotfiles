@@ -1,0 +1,95 @@
+gwtc() {
+  usage() {
+        cat << EOF
+NAME:
+    gwtc - Create a dynamic Git Worktree and jump into it.
+
+DESCRIPTION:
+    Detects the current git root, creates a parallel worktree directory 
+    named <repo>-wk-<new-branch>, and automatically navigates to it.
+
+USAGE:
+    gwtc <base-branch> <new-branch>
+
+EXAMPLES:
+    gwtc master feature/login
+    gwtc develop hotfix/api-fix
+EOF
+    }
+
+    if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+      usage
+      return 0
+    fi
+
+    local base_branch=$1
+    local new_branch=$2
+
+    if [ -z "$base_branch" ] || [ -z "$new_branch" ]; then
+        usage
+        return 1
+    fi
+
+    # 1. Check if we are in a git repo
+    if ! git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+        echo "Error: You aren't in a Git repository!"
+        return 1
+    fi
+
+    # 2. Get the name of the current root folder
+    local root_path=$(git rev-parse --show-toplevel)
+    local root_dirname=$(basename "$root_path")
+    local parent_path=$(dirname "$root_path")
+    local target_path="${parent_path}/${root_dirname}-wk-${new_branch}"
+
+    # 3. Create the worktree
+    echo "Creating worktree at $target_path from $base_branch..."
+    git worktree add -b "$new_branch" "$target_path" "$base_branch"
+
+    # 4. Jump into the new directory
+    if [ $? -eq 0 ]; then
+        cd "$target_path"
+    fi
+}
+
+
+gwtd() {
+    usage() {
+        cat << EOF
+NAME:
+    gwtd - Safely remove the current Git Worktree.
+
+DESCRIPTION:
+  Removes the current git worktree directory (and git reference)
+  Moves you to the main repo.
+
+USAGE:
+    gwtd (Run this while inside a worktree directory)
+EOF
+    }
+
+    if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+      usage
+      return 0
+    fi
+
+    # 1. Check if we are actually in a worktree folder
+    if ! git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+        usage
+        return 1
+    fi
+    
+    # 2. THE SHIELD: Is this the main repo?
+    local root_dir=$(git rev-parse --show-toplevel)
+    if [ -d "${root_dir}/.git" ]; then
+        echo "❌ ERROR: You cannot delete the Main Repository with this script."
+        return 1
+    fi
+
+    local parent_repo_path=$(dirname "$(git rev-parse --git-common-dir)")
+
+    cd "$parent_repo_path"
+    
+    # 3. Remove from Git (this also deletes the directory)
+    git worktree remove "$root_dir"
+}
