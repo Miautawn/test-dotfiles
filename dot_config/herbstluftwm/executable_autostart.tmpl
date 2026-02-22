@@ -38,7 +38,15 @@ hc keybind $Mod-Shift-c close
 hc keybind $Mod-Return spawn kitty --single-instance
 hc keybind Control-space spawn rofi -show drun -theme launcher_theme
 hc keybind $Mod-Tab spawn rofi -show window -theme window_theme
+
+# Keybinds for desktop controlls
 hc keybind $Mod-BackSpace spawn $HOME/.local/bin/gamemode_toggle
+hc keybind XF86AudioRaiseVolume spawn $HOME/.local/bin/volume_change up
+hc keybind XF86AudioLowerVolume spawn $HOME/.local/bin/volume_change down
+hc keybind XF86AudioMute spawn $HOME/.local/bin/volume_change mute
+hc keybind XF86MonBrightnessUp spawn $HOME/.local/bin/brightness_change up
+hc keybind XF86MonBrightnessDown spawn $HOME/.local/bin/brightness_change down
+hc keybind XF86AudioMicMute spawn $HOME/.local/bin/microphone_toggle
 
 # basic movement in tiling and floating mode
 # focusing clients

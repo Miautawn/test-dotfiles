@@ -1,0 +1,11 @@
+#!/bin/bash
+
+wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+
+IS_MUTED=$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{print ($3 == "[MUTED]" ? "YES" : "NO")}')
+
+if [ "$IS_MUTED" == "YES" ]; then
+    notify-send -c 'microphone_toggle_off' ''
+else
+    notify-send -c 'microphone_toggle_on' ''
+fi
