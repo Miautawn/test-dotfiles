@@ -1,0 +1,28 @@
+#!/bin/bash
+
+case $1 in
+    up)   wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ --limit 1.0 ;;
+    down) wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- ;;
+    mute) wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle ;;
+esac
+
+# 2. Single-pass processing
+# We get the raw data once, then use one AWK call to parse everything.
+RAW=$(wpctl get-volume @DEFAULT_AUDIO_SINK@)
+
+# This AWK script returns: "VOLUME MUTE_STATUS BAR"
+# e.g., "45 NO ████░░░░░░░░░"
+read -r VOL IS_MUTED BAR < <(echo "$RAW" | awk '{
+    v = int($2 * 100 + 0.5)
+    m = ($3 == "[MUTED]" ? "YES" : "NO")
+    bar = ""
+    for(i=1; i<=20; i++) bar = bar (i <= v/5 ? "█" : "░")
+    print v, m, bar
+}')
+
+if [ "$IS_MUTED" == "YES" ]; then
+    notify-send -c 'volume_mute' "$VOL" "$BAR"
+else
+    notify-send -c 'volume_change' "$VOL" "$BAR"
+fi
+

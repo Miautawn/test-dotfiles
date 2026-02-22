@@ -1,0 +1,18 @@
+#!/bin/bash
+
+case $1 in
+    up)   brightnessctl set +5% ;;
+    down) brightnessctl set 5%- ;;
+esac
+
+# 2. Get Data (-m flag gives: device,class,curr,curr_percent,max)
+# Example output: intel_backlight,backlight,400,40%,1000
+read -r PERCENT BAR < <(brightnessctl -m | awk -F',' '{
+    v = substr($4, 1, length($4)-1)
+    bar = ""
+    for(i=1; i<=20; i++) bar = bar (i <= v/5 ? "█" : "░")
+    print v, bar
+}')
+
+# 4. Notification
+notify-send -c 'brightness_change' "$PERCENT" "$BAR"
