@@ -13,19 +13,19 @@ border_style  = { fg = "#D8D8D8" }
 [filetype]
 rules = [
     # broken links
-    { name = "*", is = "orphan", fg = "#D8D8D8", bold = true },
+    { url = "*", is = "orphan", fg = "#D8D8D8", bold = true },
 
     # symbolic links    
-    { name = "*", is = "link", fg = "#D8D8D8", bold = true},
+    { url = "*", is = "link", fg = "#D8D8D8", bold = true},
 
     # executables
-    { name = "*", is = "exec", fg = "#b3f361" },
+    { url = "*", is = "exec", fg = "#b3f361" },
 
     # directories
-    { name = "*/", fg = "#98c379" },
+    { url = "*/", fg = "#98c379" },
 
     # all other files
-    { name = "*", fg = "#D8D8D8" }
+    { url = "*", fg = "#D8D8D8" }
 ]
 
 [icon]
