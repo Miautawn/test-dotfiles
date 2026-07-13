@@ -15,10 +15,10 @@ xrdb -merge ~/.config/X11/Xresources
 xss-lock --transfer-sleep-lock -- $HOME/.local/bin/lockscreen &
 # If we ever need "only transparancy compositor - let's use xcompmgr, it's really lightweight!"
 # xcompmgr & 
+picom &
 feh --bg-fill --no-fehbg --recursive --randomize ~/.wallpaper/* &
 $HOME/.config/polybar/launch.sh
 dunst &
-
 
 ############
 # KEYBINDS #
@@ -29,10 +29,13 @@ hc keyunbind --all
 # if you have a super key you will be much happier with Mod set to Mod4
 Mod=Mod1    # Use alt as the main modifier
 #Mod=Mod4   # Use the super key as the main modifier
+DEFAULT_LAYOUT=max
 
 hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
-hc keybind $Mod-Shift-c close
+# hc keybind $Mod-Shift-c close
+# Close and reset the layout to default layout if we have <=2 windows at the time.
+hc keybind $Mod-Shift-c chain , close , and . compare tags.focus.curframe_wcount le 2 . set_layout $DEFAULT_LAYOUT
 
 # Keybinds for programs
 hc keybind $Mod-Return spawn kitty --single-instance
@@ -88,6 +91,9 @@ hc keybind $Mod-Control-Down    resize down +$resizestep
 hc keybind $Mod-Control-Up      resize up +$resizestep
 hc keybind $Mod-Control-Right   resize right +$resizestep
 
+# set default frame layout to max (defined before spawning of default tags)
+hc set default_frame_layout $DEFAULT_LAYOUT
+
 # tags
 tag_names=( {1..5} )
 tag_keys=( {1..5} )
@@ -120,8 +126,12 @@ hc keybind $Mod-p pseudotile toggle
 # I.e. if there are two windows within a frame, the grid layout is skipped.
 hc keybind $Mod-space                                                           \
             or , and . compare tags.focus.curframe_wcount = 2                   \
-                     . cycle_layout +1 vertical horizontal max vertical grid    \
-               , cycle_layout +1
+                     . cycle_layout +1 $DEFAULT_LAYOUT horizontal vertical      \
+               , cycle_layout +1 $DEFAULT_LAYOUT horizontal grid
+
+# force the initial frame to have the same default layout as all the other frames
+hc set_layout $DEFAULT_LAYOUT
+
 
 #########
 # MOUSE #
