@@ -1,0 +1,81 @@
+#!/usr/bin/bash
+
+
+# A bit better rofi window approach - simulates the window option via drun with manual tweaks.
+# The windows are ordered by the WM tag (no scattering).
+# The currently focused window is preselected
+
+
+# 1. Fetch the unique hex window ID of the currently focused window.
+active_win=$(herbstclient attr clients.focus.winid 2>/dev/null)
+
+selected_row=0   # Stores the row index of the active window (0-indexed)
+current_row=0    # Counter to keep track of the current line position
+window_list=""   # The string buffer that will hold the final menu lines
+urgent_rows=""	 # comma seperated list of urgent rows indices (e.g. "1,4")
+declare -a window_ids
+
+# 2. Loop through all existing workspace tags in their logical/numerical order.
+#    'complete 1 use' lists all available tags configured in your autostart.
+for tag in $(herbstclient complete 1 use); do
+
+    # 3. Read all managed windows residing on the current tag.
+    while read -r win_id title; do
+        # Skip empty lines
+        [[ -z $win_id ]] && continue
+
+        # 4. Fetch the application class (e.g., "Alacritty", "firefox").
+        #    If a window doesn't have a class attribute, default gracefully to "Window".
+        class=$(herbstclient attr "clients.$win_id.class" 2>/dev/null || echo "Window")
+
+	is_urgent=$(herbstclient attr "clients.$win_id.urgent" 2>/dev/null)
+        if [[ $is_urgent == "true" ]]; then
+            if [[ -z $urgent_rows ]]; then
+                urgent_rows="$current_row"
+            else
+                urgent_rows+=",$current_row"
+            fi
+        fi
+
+        # 5. Check if this specific window matches our currently active window.
+        #    If it matches, store the current row index so Rofi knows where to focus.
+        if [[ $win_id == "$active_win" ]]; then
+            selected_row=$current_row
+        fi
+
+        # 6. Append the formatted line to our main window list buffer.
+        #    Format: "[Tag] Class · Title"
+        #    '${window_list:+$'\n'}' cleanly adds a newline separator only if the list isn't empty.
+        window_list+="${window_list:+$'\n'}[$tag] $class · $title"
+        window_ids+=("$win_id")
+
+        # Increment the row counter for the next window item
+        ((current_row++))
+
+    # Feed the while-loop with the list of clients for this specific tag
+    done < <(herbstclient list_clients --tag="$tag" --title)
+done
+
+# 7. Set up the Rofi menu flags using a Bash array.
+#    -i: Enables case-insensitive searching.
+#    -format i: output 0-indexes row number of selection instead of raw text string
+rofi_flags=(-dmenu -i -format i -theme ~/.config/rofi/window_theme.rasi)
+
+# 8. Dynamically append context awareness if an active window was found.
+if [[ -n $active_win ]]; then
+    rofi_flags+=(-selected-row "$selected_row" -a "$selected_row")
+fi
+
+# 9. Add urgent window indices if they were found
+if [[ -n $urgent_rows ]]; then
+    rofi_flags+=(-u "$urgent_rows")
+fi
+
+# 9. Pass the list into Rofi and capture the user's final selection string.
+choice=$(echo "$window_list" | rofi "${rofi_flags[@]}")
+
+# 10. If 'choice' is empty, the user pressed Escape or closed the menu—exit cleanly.
+if [[ -n $choice && $choice != -1 ]]; then
+    win_id="${window_ids[choice]}"
+    herbstclient jumpto "$win_id"
+fi

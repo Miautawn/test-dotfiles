@@ -6,13 +6,13 @@
 
 /*****----- Configuration -----*****/
 configuration {
-	modi:                       "drun,filebrowser,window";
     show-icons:                 false;
-    display-drun:               "󰮯"; // nf-md-pac_man
-    display-filebrowser:        ""; // nf-fa-folder
-    display-window:             "󱂬"; // nf-md-dock_window
 	drun-display-format:        "{name}";
-	window-format:              "[{w}] {c} · {t}";
+    kb-row-down:        "Alt+w,Down,Alt+j";
+    kb-row-up:          "Alt+Shift+w,Up,Alt+k";
+    kb-accept-entry:    "Return,KP_Enter,Alt+Return";
+    kb-move-front: "";
+    kb-clear-line: "Control+a";
 }
 
 /*****----- Global Properties -----*****/
@@ -84,7 +84,7 @@ mainbox {
     border-radius:               0px 0px 0px 0px;
     border-color:                @border-colour;
     background-color:            transparent;
-    children:                    [ "inputbar", "message", "listview", "mode-switcher" ];
+    children:                    [ "inputbar", "message", "listview" ];
 }
 
 /*****----- Inputbar -----*****/
@@ -121,7 +121,7 @@ entry {
     background-color:            inherit;
     text-color:                  inherit;
     cursor:                      text;
-    placeholder:                 "Search...";
+    placeholder:                 "Search for Programs...";
     placeholder-color:           inherit;
 }
 num-filtered-rows {
@@ -153,7 +153,7 @@ case-indicator {
 listview {
     enabled:                     true;
     columns:                     1;
-    lines:                       7;
+    lines:                       20;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;
@@ -162,7 +162,7 @@ listview {
     fixed-height:                true;
     fixed-columns:               true;
     
-    spacing:                     5px;
+    spacing:                     0px;
     margin:                      0px;
     padding:                     0px;
     border:                      0px solid;
@@ -184,9 +184,9 @@ element {
     enabled:                     true;
     spacing:                     0px;
     margin:                      0px;
-    padding:                     8px;
+    padding:                     0px;
     border:                      0px solid;
-    border-radius:               6px;
+    border-radius:               0px;
     border-color:                @border-colour;
     background-color:            transparent;
     text-color:                  @foreground-colour;
@@ -241,32 +241,6 @@ element-text {
     cursor:                      inherit;
     vertical-align:              0.5;
     horizontal-align:            0.0;
-}
-
-/*****----- Mode Switcher -----*****/
-mode-switcher{
-    enabled:                     true;
-    spacing:                     20px;
-    margin:                      0px;
-    padding:                     0px;
-    border:                      0px solid;
-    border-radius:               0px;
-    border-color:                @border-colour;
-    background-color:            transparent;
-    text-color:                  @foreground-colour;
-}
-button {
-    padding:                     8px 10px;
-    border:                      0px solid;
-    border-radius:               6px;
-    border-color:                @border-colour;
-    background-color:            @alternate-background;
-    text-color:                  inherit;
-    cursor:                      pointer;
-}
-button selected {
-    background-color:            var(selected-normal-background);
-    text-color:                  var(selected-normal-foreground);
 }
 
 /*****----- Message -----*****/

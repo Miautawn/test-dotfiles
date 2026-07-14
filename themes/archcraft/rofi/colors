@@ -7,3 +7,7 @@
     active:         #87A181;
     urgent:         #D88B9F;
 }
+
+// Test urgency with:
+// sudo pacman -Syu wmctrl
+// wmctrl -r "Window Title" -b add,demands_attention

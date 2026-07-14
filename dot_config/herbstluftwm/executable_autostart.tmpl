@@ -37,9 +37,10 @@ hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c chain , close , and . compare tags.focus.curframe_wcount le 2 . set_layout $DEFAULT_LAYOUT
 
 # Keybinds for programs
-hc keybind $Mod-Return spawn kitty --single-instance
+hc keybind $Mod-Return spawn kitty --single-instance --title "󰄛 Kitty"
 hc keybind Control-space spawn rofi -show drun -theme launcher_theme
-hc keybind $Mod-Tab spawn rofi -show window -theme window_theme
+# hc keybind $Mod-w spawn rofi -show window -theme window_theme
+hc keybind $Mod-w spawn $HOME/.local/bin/window_switcher
 hc keybind Print spawn flameshot gui
 
 # Keybinds for desktop controlls
@@ -145,7 +146,9 @@ hc mousebind $Mod-Button3 resize
 #########
 # hc keybind $Mod-BackSpace   cycle_monitor
 # hc keybind $Mod-Tab         cycle_all +1
-hc keybind $Mod-Shift-Tab   cycle_all -1
+# hc keybind $Mod-Shift-Tab   cycle_all -1
+hc keybind $Mod-Tab cycle +1
+hc keybind $Mod-Shift-Tab cycle -1
 hc keybind $Mod-c cycle +1
 hc keybind $Mod-z cycle -1
 hc keybind $Mod-i jumpto urgent
