@@ -9,14 +9,13 @@ hc emit_hook reload
 ######################
 # AUTOSTART PROGRAMS #
 ######################
-# Due to a weird lemurs display manager issue it doesn't load Xresources properly
-#   thus we do it manually here: https://github.com/coastalwhite/lemurs/issues/153
-xrdb -merge ~/.config/X11/Xresources
-xss-lock --transfer-sleep-lock -- $HOME/.local/bin/lockscreen &
-# Picom is great and lightweight if we use the xrender engine
+# We explicitly redirect the background programs to /tmp/current_session.log
+# as we wish to keep the background TTY clear such that we wouldn't get jumpscared when we quit X server
+# A better approach would be to redirect herbstluftwm to that file instead
+
 picom &
-feh --bg-fill --no-fehbg --recursive --randomize ~/.wallpaper/* &
-$HOME/.config/polybar/launch.sh
+feh --bg-fill --no-fehbg --recursive --randomize ~/.wallpaper/*  &
+killall -q polybar; polybar miautawn-bar &
 dunst &
 
 ############
@@ -182,12 +181,12 @@ hc unlock
 # hc detect_monitors
 
 # find the panel
-panel=~/.config/herbstluftwm/panel.sh
-[ -x "$panel" ] || panel=/etc/xdg/herbstluftwm/panel.sh
-for monitor in $(hc list_monitors | cut -d: -f1) ; do
-    # start it on each monitor
-    "$panel" "$monitor" &
-done
+# panel=~/.config/herbstluftwm/panel.sh
+# [ -x "$panel" ] || panel=/etc/xdg/herbstluftwm/panel.sh
+# for monitor in $(hc list_monitors | cut -d: -f1) ; do
+#     # start it on each monitor
+#     "$panel" "$monitor" &
+# done
 
 #########
 # THEME #

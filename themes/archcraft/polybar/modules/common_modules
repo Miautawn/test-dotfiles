@@ -41,7 +41,7 @@ click-left = $HOME/.local/bin/powermenu
 ##################
 
 [module/audio]
-type = internal/alsa
+type = internal/pulseaudio
 
 ; Available tags:
 ;   <label-volume> (default)

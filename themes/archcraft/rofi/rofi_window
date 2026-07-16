@@ -43,7 +43,7 @@ configuration {
     selected-urgent-foreground:  var(background);
 
     selected-active-background:  var(active);
-    selected-active-foreground:  var(background);
+    selected-active-foreground:  var(selected);
 
     alternate-normal-background: var(background);
     alternate-normal-foreground: var(foreground);

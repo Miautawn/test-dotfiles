@@ -42,9 +42,16 @@ format-low = <label-low>
 format-low-prefix = "󱟩 "
 format-low-prefix-font = 1
 
+format-full = <label-full>
+format-full-prefix = "󰁹 "
+format-full-prefix-font = 1
+format-full-background = ${colors.BLACK}
+format-full-foreground = ${colors.FOREGROUND}
+
 label-charging = %percentage%%
 label-discharging = %percentage%%
 label-low = %percentage%%
+label-full = %percentage%%
 
 ; Only applies if <ramp-capacity> is used
 ramp-capacity-0 = 󰁺
