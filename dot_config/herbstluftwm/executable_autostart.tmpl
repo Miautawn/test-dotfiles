@@ -14,11 +14,11 @@ hc emit_hook reload
 # A better approach would be to redirect herbstluftwm to that file instead
 
 picom &
-feh --bg-fill --no-fehbg --recursive --randomize ~/.wallpaper/*  &
+feh --bg-fill --no-fehbg --recursive --randomize ~/.wallpaper/kevin_gnutzmans_art/*  &
 killall -q polybar; polybar miautawn-bar &
 dunst &
 
-############
+############    
 # KEYBINDS #
 ############
 # remove all existing keybindings
@@ -38,7 +38,6 @@ hc keybind $Mod-Shift-c chain , close , and . compare tags.focus.curframe_wcount
 # Keybinds for programs
 hc keybind $Mod-Return spawn kitty --single-instance --title "󰄛 Kitty"
 hc keybind Control-space spawn rofi -show drun -theme launcher_theme
-# hc keybind $Mod-w spawn rofi -show window -theme window_theme
 hc keybind $Mod-w spawn $HOME/.local/bin/window_switcher
 hc keybind Print spawn flameshot gui
 
