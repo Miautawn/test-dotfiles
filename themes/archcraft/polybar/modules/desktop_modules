@@ -18,10 +18,10 @@ format-connected = <label-connected>
 format-connected-foreground = ${colors.FOREGROUND}
 format-connected-background = ${colors.BLACK}
 label-connected = ""
-label-connected-font = 2
+label-connected-font = 1
 
 format-disconnected = <label-disconnected>
 format-disconnected-foreground = ${colors.FOREGROUND}
 format-disconnected-background = ${colors.BLACK}
 label-disconnected = ""
-label-disconnected-font = 2
+label-disconnected-font = 1

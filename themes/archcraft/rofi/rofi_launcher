@@ -20,25 +20,37 @@ configuration {
 * {
     border-colour:               var(selected);
     handle-colour:               var(selected);
+
     background-colour:           var(background);
     foreground-colour:           var(foreground);
-    alternate-background:        var(background-alt);
+
+    alternate-background:        var(background);
+    alternate-foreground:        var(foreground);
+
     normal-background:           var(background);
     normal-foreground:           var(foreground);
-    urgent-background:           var(urgent);
-    urgent-foreground:           var(background);
+
     active-background:           var(active);
     active-foreground:           var(background);
+
+    urgent-background:           var(urgent);
+    urgent-foreground:           var(background);
+
     selected-normal-background:  var(selected);
     selected-normal-foreground:  var(background);
-    selected-urgent-background:  var(active);
+
+    selected-urgent-background:  var(selected);
     selected-urgent-foreground:  var(background);
-    selected-active-background:  var(urgent);
+
+    selected-active-background:  var(active);
     selected-active-foreground:  var(background);
+
     alternate-normal-background: var(background);
     alternate-normal-foreground: var(foreground);
+
     alternate-urgent-background: var(urgent);
     alternate-urgent-foreground: var(background);
+
     alternate-active-background: var(active);
     alternate-active-foreground: var(background);
 }
@@ -65,7 +77,7 @@ window {
     /* Backgroud Colors */
     background-color:            @background-colour;
     /* Backgroud Image */
-    //background-image:          url("/path/to/image.png", none);
+    //background-image:          url("url", none);
     /* Simple Linear Gradient */
     //background-image:          linear-gradient(red, orange, pink, purple);
     /* Directional Linear Gradient */

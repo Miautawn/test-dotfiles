@@ -1,81 +1,190 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
+# -----------------------------------------------------------------------------
+# Fast herbstluftwm window switcher
+#
+# Features:
+#   - Windows grouped by tag
+#   - Current window preselected
+#   - Urgent windows highlighted
+#   - Uses chain to reduce herbstclient IPC calls
+# -----------------------------------------------------------------------------
 
-# A bit better rofi window approach - simulates the window option via drun with manual tweaks.
-# The windows are ordered by the WM tag (no scattering).
-# The currently focused window is preselected
+set -euo pipefail
 
+active_win=$(herbstclient attr clients.focus.winid 2>/dev/null || true)
 
-# 1. Fetch the unique hex window ID of the currently focused window.
-active_win=$(herbstclient attr clients.focus.winid 2>/dev/null)
+# -----------------------------------------------------------------------------
+# Batch 1:
+# Collect all windows and their tags
+#
+# We create one big command:
+#
+# chain ,
+#     echo @@TAG:web ,
+#     list_clients --tag=web,
+#     echo @@TAG:code ,
+#     list_clients --tag=code
+#
+# Instead of one herbstclient invocation per tag.
+# -----------------------------------------------------------------------------
 
-selected_row=0   # Stores the row index of the active window (0-indexed)
-current_row=0    # Counter to keep track of the current line position
-window_list=""   # The string buffer that will hold the final menu lines
-urgent_rows=""	 # comma seperated list of urgent rows indices (e.g. "1,4")
-declare -a window_ids
+mapfile -t tags < <(
+    herbstclient complete 1 use
+)
 
-# 2. Loop through all existing workspace tags in their logical/numerical order.
-#    'complete 1 use' lists all available tags configured in your autostart.
-for tag in $(herbstclient complete 1 use); do
+chain=(chain ,)
+first=true
+for tag in "${tags[@]}"; do
+    if ! $first; then
+        chain+=(,)
+    fi
+    first=false
 
-    # 3. Read all managed windows residing on the current tag.
-    while read -r win_id title; do
-        # Skip empty lines
-        [[ -z $win_id ]] && continue
-
-        # 4. Fetch the application class (e.g., "Alacritty", "firefox").
-        #    If a window doesn't have a class attribute, default gracefully to "Window".
-        class=$(herbstclient attr "clients.$win_id.class" 2>/dev/null || echo "Window")
-
-	is_urgent=$(herbstclient attr "clients.$win_id.urgent" 2>/dev/null)
-        if [[ $is_urgent == "true" ]]; then
-            if [[ -z $urgent_rows ]]; then
-                urgent_rows="$current_row"
-            else
-                urgent_rows+=",$current_row"
-            fi
-        fi
-
-        # 5. Check if this specific window matches our currently active window.
-        #    If it matches, store the current row index so Rofi knows where to focus.
-        if [[ $win_id == "$active_win" ]]; then
-            selected_row=$current_row
-        fi
-
-        # 6. Append the formatted line to our main window list buffer.
-        #    Format: "[Tag] Class · Title"
-        #    '${window_list:+$'\n'}' cleanly adds a newline separator only if the list isn't empty.
-        window_list+="${window_list:+$'\n'}[$tag] $class · $title"
-        window_ids+=("$win_id")
-
-        # Increment the row counter for the next window item
-        ((current_row++))
-
-    # Feed the while-loop with the list of clients for this specific tag
-    done < <(herbstclient list_clients --tag="$tag" --title)
+    chain+=(
+        echo "@@TAG:$tag"
+        ,
+        list_clients "--tag=$tag"
+    )
 done
 
-# 7. Set up the Rofi menu flags using a Bash array.
-#    -i: Enables case-insensitive searching.
-#    -format i: output 0-indexes row number of selection instead of raw text string
-rofi_flags=(-dmenu -i -format i -theme ~/.config/rofi/window_theme.rasi)
+clients_output=$(herbstclient "${chain[@]}")
 
-# 8. Dynamically append context awareness if an active window was found.
-if [[ -n $active_win ]]; then
-    rofi_flags+=(-selected-row "$selected_row" -a "$selected_row")
+# -----------------------------------------------------------------------------
+# Parse client list
+# -----------------------------------------------------------------------------
+
+window_ids=()
+window_tags=()
+current_tag=""
+
+while IFS= read -r line; do
+
+    case "$line" in
+
+        @@TAG:*)
+            current_tag="${line#@@TAG:}"
+            ;;
+
+        "")
+            ;;
+
+        *)
+            window_ids+=("$line")
+            window_tags+=("$current_tag")
+            ;;
+
+    esac
+
+done <<< "$clients_output"
+
+# do nothing if there are not clients
+if [[ ${#window_ids[@]} == 0 ]]; then
+    exit 0
 fi
 
-# 9. Add urgent window indices if they were found
-if [[ -n $urgent_rows ]]; then
-    rofi_flags+=(-u "$urgent_rows")
+# -----------------------------------------------------------------------------
+# Batch 2:
+# Retrieve class + urgency
+# -----------------------------------------------------------------------------
+
+chain=(chain ,)
+first=true
+for win_id in "${window_ids[@]}"; do
+
+    if ! $first; then
+        chain+=(,)
+    fi
+    first=false
+
+    chain+=(
+        sprintf STR %s\|%s\|%s
+        clients.$win_id.class
+        clients.$win_id.title
+        clients.$win_id.urgent
+        echo STR
+    )
+done
+
+attrs_output=$(herbstclient "${chain[@]}")
+
+# -----------------------------------------------------------------------------
+# Parse attributes
+#
+# We split on @@END@@ because classes can contain spaces.
+# -----------------------------------------------------------------------------
+
+classes=()
+titles=()
+urgent_rows=()
+
+max_class_length=0
+selected_row=0
+i=0
+
+while IFS=$'\|' read -r class title urgent; do
+
+    classes+=("${class:-Some Window}")
+    titles+=("${title:-Some Title}")
+
+    if [[ $urgent == "true" ]]; then
+        urgent_rows+=("$i")
+    fi
+
+    if [[ "${window_ids[$i]}" == "$active_win" ]]; then
+        selected_row="$i"
+    fi
+
+    if [[ ${#class} -gt $max_class_length ]]; then
+        max_class_length=${#class}
+    fi
+
+    ((i+=1))
+
+done <<< "$attrs_output"
+
+menu_lines=()
+for i in "${!window_ids[@]}"; do
+    printf -v formatted_line "[%s] %-${max_class_length}s · %s" \
+        "${window_tags[$i]}" "${classes[$i]}" "${titles[$i]}"
+    
+    menu_lines+=("$formatted_line")
+done
+
+# -----------------------------------------------------------------------------
+# Rofi
+# -----------------------------------------------------------------------------
+
+rofi_flags=(
+    -dmenu
+    -i
+    -format i
+    -theme window_theme
+)
+
+if [[ -n "$active_win" ]]; then
+    rofi_flags+=(
+        -selected-row "$selected_row"
+        -a "$selected_row"
+    )
 fi
 
-# 9. Pass the list into Rofi and capture the user's final selection string.
-choice=$(echo "$window_list" | rofi "${rofi_flags[@]}")
 
-# 10. If 'choice' is empty, the user pressed Escape or closed the menu—exit cleanly.
-if [[ -n $choice && $choice != -1 ]]; then
-    win_id="${window_ids[choice]}"
-    herbstclient jumpto "$win_id"
+if ((${#urgent_rows[@]})); then
+    IFS=,
+    rofi_flags+=(-u "${urgent_rows[*]}")
+    unset IFS
 fi
+
+
+choice=$(
+    printf '%s\n' "${menu_lines[@]}" |
+    rofi "${rofi_flags[@]}"
+)
+
+
+if [[ -z "$choice" || "$choice" == "-1" ]]; then
+    exit 0
+fi
+
+herbstclient jumpto "${window_ids[$choice]}"

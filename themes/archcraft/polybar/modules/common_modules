@@ -8,22 +8,20 @@ label = " "
 format-background = ${colors.BLACK}
 format-foreground = ${colors.MAGENTA}
 format-padding = 1
+label-font = 3
 ##################
 
 [module/date]
 type = internal/date
 interval = 1
 
-time = "%H:%M"
-time-alt = "%Y-%m-%d%"
+;time = "%H:%M"
+time = "%Y-%m-%d %H:%M"
 
 format = <label>
 format-background = ${colors.BLACK}
 format-foreground = ${colors.FOREGROUND}
 format-padding = 0
-
-format-prefix = "󰅐 "
-format-prefix-font = 2
 
 label = %time%
 ##################
@@ -39,7 +37,7 @@ format-padding = 1
 label = ""
 label-font = 2
 
-click-left = $HOME/.local/bin/rofi_powermenu
+click-left = $HOME/.local/bin/powermenu
 ##################
 
 [module/audio]
@@ -49,16 +47,13 @@ type = internal/alsa
 ;   <label-volume> (default)
 ;   <ramp-volume>
 ;   <bar-volume>
-format-volume = <ramp-volume>
+format-volume = <label-volume>
 format-volume-padding = 0
-ramp-volume-0 = 󰝞
-ramp-volume-1 = 󰕿
-ramp-volume-2 = 󰖀
-ramp-volume-3 = 󰕾
-ramp-volume-background = ${colors.BLACK}
-ramp-volume-foreground = ${colors.FOREGROUND}
-ramp-volume-font = 2
-ramp-volume-padding = 0
+label-volume = 󰕾
+label-volume-background = ${colors.BLACK}
+label-volume-foreground = ${colors.FOREGROUND}
+label-volume-font = 2
+label-volume-padding = 0
 
 ; Available tags:
 ;   <label-muted> (default)
@@ -104,18 +99,18 @@ format-foreground = ${colors.FOREGROUND}
 format-background = ${colors.BLACK}
 
 label-active = "󰮯"
-label-active-font = 2
+label-active-font = 1
 label-active-underline = ${colors.FOREGROUND}
 
 label-occupied = ""
-label-occupied-font = 2
+label-occupied-font = 1
 
 label-empty = ""
-label-empty-font = 2
+label-empty-font = 1
 
 label-urgent = "󱙝"
 label-urgent-underline = ${colors.RED}
-label-urgent-font = 2
+label-urgent-font = 1
 
 label-active-padding = 1
 label-urgent-padding = 1

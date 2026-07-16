@@ -10,8 +10,8 @@ configuration {
     show-icons:                 false;
 	drun-display-format:        "{name}";
 	window-format:              "[{w}] {c} · {t}";
-    kb-row-down:        "Alt+w,Down,Alt+j";
-    kb-row-up:          "Alt+Shift+w,Up,Alt+k";
+    kb-row-down:        "Alt+w,Down,Alt+j,Alt+Tab";
+    kb-row-up:          "Up,Alt+k";
     kb-accept-entry:    "Return,KP_Enter,Alt+Return";
     kb-move-front: "";
     kb-clear-line: "Control+a";
@@ -20,26 +20,38 @@ configuration {
 * {
     border-colour:               var(selected);
     handle-colour:               var(selected);
+
     background-colour:           var(background);
     foreground-colour:           var(foreground);
-    alternate-background:        var(background-alt);
+
+    alternate-background:        var(background);
+    alternate-foreground:        var(foreground);
+
     normal-background:           var(background);
     normal-foreground:           var(foreground);
-    urgent-background:           var(urgent);
-    urgent-foreground:           var(background);
+
     active-background:           var(active);
     active-foreground:           var(background);
+
+    urgent-background:           var(urgent);
+    urgent-foreground:           var(background);
+
     selected-normal-background:  var(selected);
     selected-normal-foreground:  var(background);
+
     selected-urgent-background:  var(selected);
     selected-urgent-foreground:  var(background);
+
     selected-active-background:  var(active);
     selected-active-foreground:  var(background);
+
     alternate-normal-background: var(background);
     alternate-normal-foreground: var(foreground);
+
     alternate-urgent-background: var(urgent);
     alternate-urgent-foreground: var(background);
-    alternate-active-background: var(selected);
+
+    alternate-active-background: var(active);
     alternate-active-foreground: var(background);
 }
 

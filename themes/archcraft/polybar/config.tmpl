@@ -15,11 +15,14 @@
 # MAIN POLYBAR CONFIGURATION #
 ##############################
 [bar/miautawn-bar]
+# RETARD ALERT: You define 0-indexed fonts here, but in modules you refer in 1-based indexing
 font-0 = 0xProto Nerd Font Mono:style=Regular:pixelsize=10;1
-# Icons
-font-1 = Symbols Nerd Font Mono:style=Regular:pixelsize=12;1
-# Enlarged glyps for rounded corners
-font-2 = Symbols Nerd Font:style=Regular:pixelsize=14;1
+
+# For larger icons
+font-1 = 0xProto Nerd Font Mono:style=Regular:pixelsize=13;1
+
+# For padding
+font-2 = 0xProto Nerd Font Mono:style=Regular:pixelsize=5;1
 
 background = ${colors.BLACK}
 foreground = ${colors.FOREGROUND}
