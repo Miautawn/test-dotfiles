@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Volume Panel
+Comment=Uses Wiremixer to spawn a volume control panel
+Exec=sh -c "$HOME/.local/bin/volume_panel"
+Terminal=false
+Categories=Utility;System;

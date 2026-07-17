@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+title=" wifi-panel"
+
+herbstclient rule --once title="$title" \
+    focus=on \
+    floating_geometry=400x600 \
+    floating=on \
+    floatplacement=topright; \
+    kitty \
+    --title "$title" \
+    --single-instance \
+    -e impala

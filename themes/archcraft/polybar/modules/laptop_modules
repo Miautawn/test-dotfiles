@@ -80,7 +80,7 @@ ping-interval = 3
 accumulate-stats = false
 unknown-as-up = true
 
-format-connected = <ramp-signal>
+format-connected = %{A3:$HOME/.local/bin/wifi_panel &:}<ramp-signal>%{A}
 format-connected-foreground = ${colors.FOREGROUND}
 format-connected-background = ${colors.BLACK}
 ramp-signal-0 = 󰤯
@@ -90,16 +90,14 @@ ramp-signal-3 = 󰤥
 ramp-signal-4 = 󰤨
 ramp-signal-font = 2
 
-format-disconnected = <label-disconnected>
+format-disconnected = %{A3:$HOME/.local/bin/wifi_panel &:}<label-disconnected>%{A}
 format-disconnected-foreground = ${colors.FOREGROUND}
 format-disconnected-background = ${colors.BLACK}
 label-disconnected = "󰤮"
 label-disconnected-font = 2
 
-format-packetloss = <label-packetloss>
+format-packetloss = %{A3:$HOME/.local/bin/wifi_panel &:}<label-packetloss>%{A}
 format-packetloss-foreground = ${colors.FOREGROUND}
 format-packetloss-background = ${colors.BLACK}
 label-packetloss = "󰤫"
 label-packetloss-font = 2
-
-click-left = herbstclient rule once --floating=on --floatplacement=center; xterm --title wifi-panel -e impala

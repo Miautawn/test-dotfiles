@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+title=" volume-panel"
+
+herbstclient rule --once title="$title" \
+    focus=on \
+    floating_geometry=600x240 \
+    floating=on \
+    floatplacement=topright; \
+    kitty \
+    --title "$title" \
+    --single-instance \
+    -e wiremix

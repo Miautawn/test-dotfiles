@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Wifi Panel
+Comment=Uses Impala to spawn a wifi control panel
+Exec=sh -c "$HOME/.local/bin/wifi_panel"
+Terminal=false
+Categories=Utility;System;

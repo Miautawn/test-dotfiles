@@ -67,7 +67,7 @@ label-muted-foreground = ${colors.FOREGROUND}
 label-muted-font = 2
 label-muted-padding = 0
 
-click-right = pavucontrol
+click-right = $HOME/.local/bin/volume_panel
 ##################
 
 [module/keyboard]
