@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Bluetooth Panel
+Comment=Uses Bluetui to spawn a bluetooth control panel
+Exec=sh -c "$HOME/.local/bin/bluetooth_panel"
+Terminal=false
+Categories=Utility;System;

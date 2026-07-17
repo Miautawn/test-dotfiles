@@ -30,7 +30,7 @@ foreground = ${colors.FOREGROUND}
 {{ if eq $ctx.DEVICE_TYPE "laptop" -}}
 modules-left = herbstluftwm sep keyboard
 modules-center = tray
-modules-right = network sep audio sep battery sep date sep powermenu
+modules-right = bluetooth sep network sep audio sep battery sep date sep powermenu
 {{- else if eq $ctx.DEVICE_TYPE "desktop" -}}
 modules-left = herbstluftwm sep keyboard
 modules-center = tray

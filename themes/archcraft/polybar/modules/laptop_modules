@@ -101,3 +101,20 @@ format-packetloss-foreground = ${colors.FOREGROUND}
 format-packetloss-background = ${colors.BLACK}
 label-packetloss = "󰤫"
 label-packetloss-font = 2
+
+##################
+
+[module/bluetooth]
+type = custom/script
+
+# Check if any bluetooth devices are currently connected
+exec = sh -c 'if [ -n "$(bluetoothctl devices Connected)" ]; then echo ""; else echo ""; fi'
+
+# Refresh every 3 seconds to stay lightweight
+interval = 3
+
+format-foreground = ${colors.FOREGROUND}
+format-background = ${colors.BLACK}
+format-font = 1
+
+click-right = $HOME/.local/bin/bluetooth_panel
