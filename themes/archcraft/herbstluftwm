@@ -9,6 +9,7 @@ ACTIVE_TAB_COLOUR="#98c379"
 INACTIVE_TAB_COLOUR="#262626"
 HIGHLIGHT_LINE_COLOUR="#D8D8D8"
 INACTIVE_HIGHLIGHT_COLOUR="#808080"
+URGENT_COLOUR="#e06c75"
 
 # GLOBAL BOARDER SETTINGS
 hc attr theme.border_width        0
@@ -67,8 +68,8 @@ hc set hide_covered_windows true
 #hc attr theme.floating.active.outer_color "#D8D8D8"
 #hc attr theme.floating.normal.outer_color "#1e222a"
 
-########################Ę
+#########################
 # URGEN WINDOW SETTINGS #
 #########################
-hc attr theme.urgent.color "#e06c75"
-hc attr theme.urgent.title_color "#e06c75"
+hc attr theme.urgent.color $URGENT_COLOUR
+hc attr theme.urgent.title_color #INACTIVE_TAB_COLOUR
