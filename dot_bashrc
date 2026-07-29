@@ -8,6 +8,11 @@
 # Adds local executable directory to path
 export PATH="$PATH:$HOME/.local/bin"
 
+################
+# PRIVATE BASH #
+################
+[[ -f ~/.bashrc_private ]] && . ~/.bashrc_private
+
 #############
 # VARIABLES #
 #############
