@@ -44,5 +44,7 @@ if [ -d "$xinitdir"/xinitrc.d ] ; then
 	unset f
 fi
 
-exec herbstluftwm >> /tmp/current_session.log 2>&1
+# set US + LT keyword switching
+setxkbmap -layout us,lt -option grp:ctrl_shift_toggle
 
+exec herbstluftwm >> /tmp/current_session.log 2>&1
