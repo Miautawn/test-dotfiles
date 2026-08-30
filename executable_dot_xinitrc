@@ -45,6 +45,6 @@ if [ -d "$xinitdir"/xinitrc.d ] ; then
 fi
 
 # set US + LT keyword switching
-setxkbmap -layout us,lt -option grp:ctrl_shift_toggle
+setxkbmap -layout us,lt -option grp:caps_toggle
 
 exec herbstluftwm >> /tmp/current_session.log 2>&1
