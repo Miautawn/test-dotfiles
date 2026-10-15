@@ -1,0 +1,21 @@
+{
+  "includeCoAuthoredBy": false,
+  "sandbox": {
+    "enabled": true,
+    "autoAllowBashIfSandboxed": true,
+    "allowUnsandboxedCommands": false,
+    "failIfUnavailable": true,
+    "filesystem": {
+      "allowWrite": ["/tmp", "~/.cache"],
+      "denyRead": ["~/.ssh", "~/.aws", "~/.config/gh", "~/.npmrc", "~/.netrc", "~/.claude.json"]
+    }
+  },
+  "permissions": {
+    "defaultMode": "acceptEdits"
+  },
+  "hooks": {
+    "PreToolUse": [
+      { "matcher": "*", "hooks": [{ "type": "command", "command": "python $HOME/.claude/hooks/confine.py" }] }
+    ]
+  }
+}

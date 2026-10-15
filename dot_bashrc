@@ -44,3 +44,25 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+
+#################
+# LAZYGIT STUFF #
+#################
+
+# Allows you to cd to exit directory (for example when switching worktrees)
+lg() {
+    export LAZYGIT_NEW_DIR_FILE=~/.lazy-git-new-dir
+    lazygit "$@"
+    if [ -f "$LAZYGIT_NEW_DIR_FILE" ]; then
+        cd "$(cat "$LAZYGIT_NEW_DIR_FILE")" || return
+        rm -f "$LAZYGIT_NEW_DIR_FILE"
+    fi
+}
+
+#####################
+# CLAUDE CODE STUFF #
+#####################
+# allows running claude with working-directory isolation for autonamous background task
+claude-slave() {
+  CLAUDE_PROJECT_DIR="$PWD" claude --settings "$HOME/.claude/autonomous.json" "$@" --append-system-prompt "You are running in a sandboxed, unattended session confined to the current project directory. If you need to create a PR, simply generate a fully qualified 'gh pr create' commans for the user to execute. Do not try to execute the PR yourself"
+}

@@ -31,7 +31,7 @@ env \
   XSECURELOCK_SINGLE_AUTH_WINDOW=1 \
   xss-lock --transfer-sleep-lock -- sh -c 'playerctl pause; exec xsecurelock' &
 
-picom &
+picom -b
 feh --bg-fill --no-fehbg --recursive --randomize ~/.wallpaper/kevin_gnutzmans_art/*  &
 killall -q polybar; polybar miautawn-bar &
 dunst &
