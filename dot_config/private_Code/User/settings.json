@@ -18,5 +18,11 @@
     "claudeCode.preferredLocation": "panel",
     "editor.wordWrapColumn": 79,
     "editor.wrappingIndent": "indent",
-    "rewrap.autoWrap.enabled": true
+    "rewrap.autoWrap.enabled": true,
+    "editor.minimap.enabled": false,
+    "chat.titleBar.signIn.enabled": false,
+    "chat.titleBar.openInAgentsWindow.enabled": false,
+    "workbench.browser.showInTitleBar": false,
+    "window.commandCenter": false,
+    "workbench.layoutControl.enabled": false
 }
