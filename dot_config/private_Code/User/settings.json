@@ -1,0 +1,22 @@
+{
+    "editor.fontFamily": "'0xProto Nerd Font Mono'",
+
+    "notebook.formatOnSave.enabled": true,
+    "notebook.codeActionsOnSave": {
+        "notebook.source.fixAll": "explicit",
+        "notebook.source.organizeImports": "explicit"
+    },
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit",
+        "source.organizeImports": "explicit"
+        },
+        "editor.defaultFormatter": "charliermarsh.ruff"
+    },
+    "workbench.colorTheme": "Monokai",
+    "claudeCode.preferredLocation": "panel",
+    "editor.wordWrapColumn": 79,
+    "editor.wrappingIndent": "indent",
+    "rewrap.autoWrap.enabled": true
+}
